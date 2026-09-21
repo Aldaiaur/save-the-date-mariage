@@ -5,6 +5,7 @@
 :root{
   --bg:#FBF3E2;
   --surface:#FFFEFA;
+  --surface-2:#F3E9D2;
   --ink:#1F3350;
   --ink-muted:#5C6E82;
   --azure:#2C86D4;
@@ -18,23 +19,20 @@
   --violet:#8C74B5;
   --line:#EFE2C8;
   --cream-ink:#FFFBF1;
-  --shadow: 0 10px 26px -18px rgba(31,51,80,0.28);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#152233; --surface:#1E2E44; --ink:#F2EBDA; --ink-muted:#AEB9C9;
+    --bg:#152233; --surface:#1E2E44; --surface-2:#233A55; --ink:#F2EBDA; --ink-muted:#AEB9C9;
     --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
     --olive:#9CAE6E; --solar:#F7C860; --ocre:#E8B364; --terracotta:#E58260;
     --violet:#A98CD1; --line:#2D3F58; --cream-ink:#1B140B;
-    --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#152233; --surface:#1E2E44; --ink:#F2EBDA; --ink-muted:#AEB9C9;
+  --bg:#152233; --surface:#1E2E44; --surface-2:#233A55; --ink:#F2EBDA; --ink-muted:#AEB9C9;
   --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
   --olive:#9CAE6E; --solar:#F7C860; --ocre:#E8B364; --terracotta:#E58260;
   --violet:#A98CD1; --line:#2D3F58; --cream-ink:#1B140B;
-  --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
 }
 
 *{box-sizing:border-box;}
@@ -42,102 +40,100 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:'Work Sans',syst
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
-.page{max-width:600px;margin:0 auto;}
+.page{max-width:640px;margin:0 auto;overflow-x:hidden;}
 h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;margin:0;}
 
 /* ---------- TOP BAR ---------- */
 .topbar{
   position:sticky;top:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
-  gap:10px;
-  padding:14px 20px;
+  gap:10px;padding:14px 20px;
   background:color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
-.topbar a{
-  font-family:'Work Sans',sans-serif;
-  font-size:0.78rem;
-  font-weight:700;
-  text-decoration:none;
-  white-space:nowrap;
-}
+.topbar a{font-family:'Work Sans',sans-serif;font-size:0.78rem;font-weight:700;text-decoration:none;white-space:nowrap;}
 .back-link{color:var(--deep-blue);}
-.skip-link{
-  color:var(--cream-ink);
-  background:var(--terracotta);
-  padding:9px 18px;
-  border-radius:999px;
-  transition:transform 0.15s ease;
-}
+.skip-link{color:var(--cream-ink);background:var(--terracotta);padding:9px 18px;border-radius:999px;transition:transform 0.15s ease;}
 .skip-link:hover{transform:translateY(-1px);}
 
 /* ---------- STORY HERO ---------- */
-.story-hero{
-  text-align:center;
-  padding:52px 26px 40px;
-}
-.story-eyebrow{
-  font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--terracotta);margin:0 0 12px;
-}
+.story-hero{text-align:center;padding:48px 26px 30px;}
+.story-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);margin:0 0 12px;}
 .story-title{font-size:clamp(2.1rem,8vw,2.7rem);line-height:1.15;}
-.story-sub{
-  margin-top:16px;font-size:0.95rem;color:var(--ink-muted);
-  max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.6;
-}
+.story-sub{margin-top:14px;font-size:0.95rem;color:var(--ink-muted);max-width:36ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+.opener-photo{margin:26px 20px 0;border-radius:20px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 16px 34px -20px rgba(20,30,45,0.4);}
+.opener-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.opener-caption{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--ink-muted);margin:14px 20px 0;}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
 
 /* ---------- CHAPTERS ---------- */
-.chapter{padding:56px 26px;color:var(--cream-ink);}
-.chapter.ch1{background:var(--ocre);}
-.chapter.ch2{background:var(--olive);}
-.chapter.ch3{background:var(--azure);}
-.chapter-label{
-  font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
-  opacity:0.85;margin:0 0 10px;text-align:center;
-}
-.chapter-title{
-  font-size:1.8rem;text-align:center;margin-bottom:18px;color:var(--cream-ink);
-}
-.chapter-text{
-  font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;
-  line-height:1.6;text-align:center;
-  max-width:32ch;margin:0 auto 32px;color:var(--cream-ink);
-}
+.chapter{padding:46px 0 10px;}
+.chapter-head{text-align:center;padding:0 24px;margin-bottom:8px;}
+.chapter-label{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--terracotta);margin:0 0 10px;}
+.chapter-title{font-size:1.6rem;margin-bottom:10px;}
+.chapter-sub{font-size:0.92rem;color:var(--ink-muted);max-width:38ch;margin:0 auto;line-height:1.55;}
 
-/* ---------- PHOTO SLOTS ---------- */
-.photo-row{display:grid;gap:12px;}
-.photo-row.two{grid-template-columns:1fr 1fr;}
-.photo-row.one{grid-template-columns:1fr;}
-.photo-slot{
+/* ---------- DECKS (card carousel) ---------- */
+.deck-row{margin-top:26px;}
+.deck-tag{
+  display:inline-block;margin:0 0 12px 24px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:#fff;padding:5px 14px;border-radius:999px;
+}
+.deck-tag.elle{background:var(--terracotta);}
+.deck-tag.lui{background:var(--azure);}
+.deck{
+  display:flex;gap:14px;overflow-x:auto;
+  padding:6px 24px 18px;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.deck::-webkit-scrollbar{display:none;}
+.card{flex:none;width:58vw;max-width:230px;scroll-snap-align:center;}
+.card-photo{
+  aspect-ratio:3/4;border-radius:14px;overflow:hidden;
+  box-shadow:0 14px 26px -16px rgba(20,30,45,0.4);
+  border:5px solid var(--surface);
   background:var(--surface);
-  border-radius:18px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;
-  padding:18px 14px;
-  color:var(--ink-muted);
-  text-align:center;
-  box-shadow:0 10px 24px -16px rgba(0,0,0,0.3);
 }
-.photo-slot.portrait{aspect-ratio:3/4;}
-.photo-slot.landscape{aspect-ratio:4/3;}
-.photo-slot.tall{aspect-ratio:3/4;}
-.photo-slot .cam-badge{
-  width:36px;height:36px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--ink);opacity:0.15;
+.card:nth-child(odd) .card-photo{transform:rotate(-3deg);}
+.card:nth-child(even) .card-photo{transform:rotate(2.5deg);}
+.card-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.card-caption{
+  margin-top:10px;text-align:center;
+  font-family:'Fraunces',serif;font-style:italic;font-size:0.85rem;
+  color:var(--ink);line-height:1.4;padding:0 4px;
 }
-.photo-slot .cam{width:18px;height:18px;color:var(--ink);}
-.photo-slot span{font-size:0.78rem;font-style:italic;line-height:1.4;max-width:22ch;color:var(--ink-muted);}
 
-/* ---------- EPILOGUE ---------- */
-.epilogue{text-align:center;padding:60px 26px 76px;}
-.epilogue .chapter-label{color:var(--terracotta);}
-.epilogue .chapter-title{color:var(--ink);}
-.epilogue p.lede{
-  font-size:0.98rem;color:var(--ink-muted);max-width:36ch;
-  margin:0 auto 28px;line-height:1.65;
+/* converge deck (trouvés) */
+.deck.converge{padding-left:44px;}
+.deck.converge .card{margin-left:-34px;}
+.deck.converge .card:first-child{margin-left:0;}
+.deck.converge .card-photo{border-color:var(--terracotta);border-width:4px;}
+.deck.converge .card:nth-child(1) .card-photo{transform:rotate(-6deg);}
+.deck.converge .card:nth-child(2) .card-photo{transform:rotate(-2deg);}
+.deck.converge .card:nth-child(3) .card-photo{transform:rotate(3deg);}
+.deck.converge .card:nth-child(4) .card-photo{transform:rotate(-3deg);}
+.deck.converge .card:nth-child(5) .card-photo{transform:rotate(5deg);}
+
+/* ---------- FINALE ---------- */
+.finale{text-align:center;padding:56px 26px 76px;}
+.finale-photo{
+  max-width:340px;margin:0 auto;border-radius:22px;overflow:hidden;
+  aspect-ratio:4/5;box-shadow:0 24px 48px -22px rgba(20,30,45,0.45);
 }
+.finale-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.finale-caption{
+  font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;
+  margin:22px auto 8px;max-width:30ch;color:var(--ink);
+}
+.finale p.lede{font-size:0.95rem;color:var(--ink-muted);max-width:36ch;margin:0 auto 28px;line-height:1.6;}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   font-family:'Work Sans',sans-serif;font-weight:700;font-size:0.95rem;
@@ -146,19 +142,8 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
   transition:transform 0.15s ease;
 }
 .btn:hover{transform:translateY(-2px);}
-a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:4px;}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease, transform 0.7s ease;}
-.reveal.is-visible{opacity:1;transform:translateY(0);}
+a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:4px;}
 </style>
-
-<svg style="display:none" aria-hidden="true">
-  <symbol id="ico-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-    <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/>
-    <circle cx="12" cy="13" r="3.4"/>
-  </symbol>
-</svg>
 
 <div class="page">
 
@@ -173,58 +158,159 @@ a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--azure);outlin
     <p class="story-sub">Pas obligatoire, mais on avait envie de vous la raconter.</p>
   </header>
 
-  <!-- ============ CHAPITRE I ============ -->
-  <section class="chapter ch1 reveal">
-    <p class="chapter-label">Chapitre I</p>
-    <h2 class="chapter-title">Le pèlerin</h2>
-    <p class="chapter-text">C'était un jeune pèlerin, parti à la recherche de l'amour. Il a marché — beaucoup marché. Des routes, des pays, des sentiers qui ne menaient nulle part en particulier, sinon vers la suite de l'histoire.</p>
-    <div class="photo-row two">
-      <div class="photo-slot portrait">
-        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
-        <span>Photo : toi, en chemin quelque part dans le monde</span>
+  <div class="opener-photo reveal">
+    <img src="photos/00-intro.jpg" alt="" loading="lazy">
+  </div>
+  <p class="opener-caption reveal">C'est l'histoire de deux personnes…</p>
+
+  <!-- ============ CHAPITRE I : ILS MARCHENT ============ -->
+  <section class="chapter">
+    <div class="chapter-head reveal">
+      <p class="chapter-label">Chapitre I</p>
+      <h2 class="chapter-title">Ils marchent, en même temps, chacun de leur côté</h2>
+      <p class="chapter-sub">Deux itinéraires, une seule destination — ils ne le savent pas encore.</p>
+    </div>
+
+    <div class="deck-row reveal">
+      <span class="deck-tag elle">Elle</span>
+      <div class="deck">
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-01.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle cherche… (il est peut-être là ?)</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-02.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle cherche encore, dans les endroits les plus escarpés…</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-03.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle marche, se demande si c'est la maison de son prince charmant</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-04.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle marche.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-05.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle marche, cherche son chemin.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-06.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Elle marche encore.</p>
+        </div>
       </div>
-      <div class="photo-slot portrait">
-        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
-        <span>Photo : toi, encore en train de marcher</span>
+    </div>
+
+    <div class="deck-row reveal">
+      <span class="deck-tag lui">Lui</span>
+      <div class="deck">
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-01.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Il marche.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-02.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Il marche encore.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-03.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Il marche toujours.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-04.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Il marche, lui aussi, sans trop savoir où il va.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHAPITRE II ============ -->
-  <section class="chapter ch2 reveal">
-    <p class="chapter-label">Chapitre II</p>
-    <h2 class="chapter-title">Sérieux, en apparence</h2>
-    <p class="chapter-text">Un homme sérieux, pourtant. Du sérieux dans le regard, de la rigueur dans le pas. Enfin... ça dépendait vraiment des jours.</p>
-    <div class="photo-row two">
-      <div class="photo-slot landscape">
-        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
-        <span>Photo : toi, très sérieux (si si)</span>
+  <!-- ============ CHAPITRE II : RESPONSABLES ============ -->
+  <section class="chapter" style="background:var(--surface-2);">
+    <div class="chapter-head reveal">
+      <p class="chapter-label">Chapitre II</p>
+      <h2 class="chapter-title">Deux adultes très responsables</h2>
+      <p class="chapter-sub">Pour info, ils avaient largement dépassé l'âge de faire n'importe quoi. Ça ne les a pas arrêtés.</p>
+    </div>
+
+    <div class="deck-row reveal">
+      <span class="deck-tag elle">Elle, responsable</span>
+      <div class="deck">
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-01.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Une femme responsable (glace Schtroumpf, mais responsable)</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-02.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Une femme responsable, en pleine fête</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-03.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Queen.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-04.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Queen, acte 2.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-05.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Pas de flûte avec elle — juste elle.</p>
+        </div>
       </div>
-      <div class="photo-slot landscape">
-        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
-        <span>Photo : toi, en train de faire le pitre</span>
+    </div>
+
+    <div class="deck-row reveal">
+      <span class="deck-tag lui">Lui, responsable</span>
+      <div class="deck">
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-01.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Un homme responsable.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-02.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Un homme responsable, épisode 2.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-03.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Un homme responsable, épisode 3.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-04.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Il était bien entouré.</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-05.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Quand il cherche bien, il trouve. Pan, pan !</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHAPITRE III ============ -->
-  <section class="chapter ch3 reveal">
-    <p class="chapter-label">Chapitre III</p>
-    <h2 class="chapter-title">Et puis, il l'a trouvée</h2>
-    <p class="chapter-text">Depuis, il ne marche plus vraiment pour chercher — juste pour la suivre.</p>
-    <div class="photo-row one">
-      <div class="photo-slot tall">
-        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
-        <span>Photo : elle, superbe (comme toujours)</span>
+  <!-- ============ CHAPITRE III : ILS SE TROUVENT ============ -->
+  <section class="chapter">
+    <div class="chapter-head reveal">
+      <p class="chapter-label">Chapitre III</p>
+      <h2 class="chapter-title">Et puis, ils se sont trouvés !</h2>
+      <p class="chapter-sub">Deux chemins qui n'en font plus qu'un.</p>
+    </div>
+    <div class="deck-row reveal">
+      <div class="deck converge">
+        <div class="card"><div class="card-photo"><img src="photos/trouve-01.jpg" alt="" loading="lazy"></div></div>
+        <div class="card"><div class="card-photo"><img src="photos/trouve-02.jpg" alt="" loading="lazy"></div></div>
+        <div class="card"><div class="card-photo"><img src="photos/trouve-03.jpg" alt="" loading="lazy"></div></div>
+        <div class="card"><div class="card-photo"><img src="photos/trouve-04.jpg" alt="" loading="lazy"></div></div>
+        <div class="card"><div class="card-photo"><img src="photos/trouve-05.jpg" alt="" loading="lazy"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ ÉPILOGUE ============ -->
-  <footer class="epilogue reveal">
+  <!-- ============ FINALE ============ -->
+  <footer class="finale reveal">
     <p class="chapter-label">Épilogue</p>
-    <h2 class="chapter-title" style="margin-bottom:16px;">La suite, vous la connaissez</h2>
-    <p class="lede">Une grange, un pré, deux ânes, et nous deux. Il ne manque plus que vous.</p>
+    <div class="finale-photo">
+      <img src="photos/finale.jpg" alt="" loading="lazy">
+    </div>
+    <p class="finale-caption">Et depuis, ils ne marchent plus l'un sans l'autre.</p>
+    <p class="lede">La suite, vous la connaissez déjà un peu : une grange, un pré, deux ânes, et nous deux. Il ne manque plus que vous.</p>
     <a class="btn" href="index.html#infos-pratiques">Voir les infos du mariage →</a>
   </footer>
 
@@ -241,7 +327,7 @@ a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--azure);outlin
           io.unobserve(entry.target);
         }
       });
-    }, {threshold:0.12});
+    }, {threshold:0.1});
     reveals.forEach(function(el){ io.observe(el); });
   } else {
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
