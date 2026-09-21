@@ -1,0 +1,647 @@
+<title>Rendez-vous à la Grange</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#F6F0E4;
+  --surface:#FBF7EE;
+  --surface-2:#F0E7D5;
+  --text:#2E2A22;
+  --text-muted:#6B6152;
+  --accent:#B5502F;
+  --accent-ink:#FBF3EA;
+  --accent-2:#5C6B44;
+  --gold:#B8923C;
+  --line:#E1D5BC;
+  --shadow: 0 18px 40px -24px rgba(46,38,22,0.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#211C15;
+    --surface:#2A2319;
+    --surface-2:#332B1E;
+    --text:#F3EBDB;
+    --text-muted:#BDAF97;
+    --accent:#E07A50;
+    --accent-ink:#241109;
+    --accent-2:#93A56C;
+    --gold:#D9B65B;
+    --line:#3B3225;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#211C15;
+  --surface:#2A2319;
+  --surface-2:#332B1E;
+  --text:#F3EBDB;
+  --text-muted:#BDAF97;
+  --accent:#E07A50;
+  --accent-ink:#241109;
+  --accent-2:#93A56C;
+  --gold:#D9B65B;
+  --line:#3B3225;
+  --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Karla',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+.page{max-width:600px;margin:0 auto;position:relative;}
+
+h1,h2,h3,.display{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  text-wrap:balance;
+  margin:0;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:min(88vh, 760px);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-scene{
+  position:absolute;inset:0;
+  opacity:0;
+  animation: scene-cycle 18s infinite;
+}
+.hero-scene svg{width:100%;height:100%;display:block;}
+.hero-scene.s1{animation-delay:0s;}
+.hero-scene.s2{animation-delay:6s;}
+.hero-scene.s3{animation-delay:12s;}
+@keyframes scene-cycle{
+  0%{opacity:0;}
+  4%{opacity:1;}
+  30%{opacity:1;}
+  36%{opacity:0;}
+  100%{opacity:0;}
+}
+.hero-scene .pan{animation: pan-slow 18s ease-in-out infinite;}
+@keyframes pan-slow{
+  0%{transform:scale(1.04) translateX(0);}
+  50%{transform:scale(1.1) translateX(-1.5%);}
+  100%{transform:scale(1.04) translateX(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-scene{animation:none;opacity:0;}
+  .hero-scene.s1{opacity:1;}
+  .hero-scene .pan{animation:none;}
+}
+
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(33,28,21,0.05) 0%, rgba(33,28,21,0.15) 55%, rgba(33,28,21,0.78) 100%);
+  z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:28px 28px 40px;
+  color:#F9F1E4;
+}
+.eyebrow{
+  font-family:'Karla',sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#E9DCC2;
+  margin:0 0 10px;
+}
+.hero-names{
+  font-size:clamp(2.6rem, 11vw, 3.6rem);
+  font-style:italic;
+  line-height:1.05;
+  color:#FBF3E4;
+}
+.hero-date{
+  margin-top:14px;
+  font-family:'Karla',sans-serif;
+  font-size:1rem;
+  letter-spacing:0.08em;
+  color:#EDE0C6;
+}
+.hero-scroll{
+  margin-top:26px;
+  font-size:0.78rem;
+  color:#D8C9A8;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-scroll .chev{animation:bob 2.2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+
+/* ---------- SHARED SECTION RHYTHM ---------- */
+section{padding:56px 28px;}
+.intro{
+  text-align:center;
+  padding-top:64px;
+}
+.intro p{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.3rem;
+  line-height:1.5;
+  color:var(--text);
+  max-width:26ch;
+  margin:0 auto;
+}
+.rule{
+  width:100%;
+  height:1px;
+  background:var(--line);
+  border:none;
+  margin:0;
+}
+.section-head{text-align:center;margin-bottom:32px;}
+.section-eyebrow{
+  font-size:0.72rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--accent-2);
+  margin:0 0 8px;
+}
+.section-title{font-size:1.9rem;color:var(--text);}
+
+/* reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+/* ---------- COUNTDOWN ---------- */
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:420px;
+  margin:0 auto;
+}
+.count-tile{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px 4px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.count-num{
+  font-family:'Fraunces',serif;
+  font-size:1.7rem;
+  font-variant-numeric:tabular-nums;
+  color:var(--accent);
+  display:block;
+}
+.count-label{
+  font-size:0.62rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.calendar-link{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  font-size:0.85rem;
+  color:var(--accent-2);
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+  width:max-content;
+  margin-left:auto;margin-right:auto;
+  padding-bottom:2px;
+}
+.calendar-link:focus-visible, a:focus-visible, button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ---------- INFOS ---------- */
+.infos-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media (min-width:520px){
+  .infos-grid{grid-template-columns:1fr 1fr;}
+}
+.info-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px 20px;
+  box-shadow:var(--shadow);
+}
+.info-card .icon{
+  width:30px;height:30px;
+  color:var(--accent-2);
+  margin-bottom:12px;
+  display:block;
+}
+.info-card h3{
+  font-size:1.05rem;
+  margin-bottom:6px;
+  color:var(--text);
+}
+.info-card p{
+  margin:0;
+  font-size:0.92rem;
+  line-height:1.55;
+  color:var(--text-muted);
+}
+.info-card a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;}
+.info-card.wide{grid-column:1 / -1;}
+.donkey-note{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.donkey-note svg{flex:none;width:46px;height:46px;color:var(--accent-2);}
+
+/* ---------- CTA SECTIONS ---------- */
+.cta-section{
+  text-align:center;
+  background:var(--surface-2);
+  border-radius:20px;
+  margin:0 20px;
+  padding:48px 26px;
+}
+.cta-section p.lede{
+  font-size:0.95rem;
+  color:var(--text-muted);
+  max-width:36ch;
+  margin:0 auto 26px;
+  line-height:1.6;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Karla',sans-serif;
+  font-weight:600;
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+  padding:15px 30px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{
+  background:var(--accent);
+  color:var(--accent-ink);
+  box-shadow:0 14px 28px -14px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--accent);
+  border-color:var(--accent);
+}
+.btn[aria-disabled="true"]{
+  opacity:0.55;
+  cursor:not-allowed;
+  transform:none !important;
+  box-shadow:none;
+}
+.btn-note{
+  margin-top:14px;
+  font-size:0.78rem;
+  color:var(--text-muted);
+}
+.rsvp-deadline{
+  font-size:0.8rem;
+  color:var(--accent-2);
+  margin-top:16px;
+  font-weight:600;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:52px 28px 60px;
+}
+footer .sign{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.4rem;
+  color:var(--text);
+  margin-bottom:14px;
+}
+footer .donkeys{
+  width:120px;height:auto;
+  color:var(--accent-2);
+  margin:0 auto 16px;
+  display:block;
+}
+footer .fine{
+  font-size:0.78rem;
+  color:var(--text-muted);
+}
+</style>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z"/>
+    <circle cx="12" cy="9" r="2.4"/>
+  </symbol>
+  <symbol id="ico-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M8 3 4 6l1.5 3L8 8v13h8V8l2.5 1L20 6l-4-3-2 2h-4L8 3Z"/>
+  </symbol>
+  <symbol id="ico-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M17 3c-2 0-3 2-3 5s1 4 3 4M17 3v18"/>
+  </symbol>
+  <symbol id="ico-donkey" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="46" cy="58" rx="24" ry="14"/>
+    <path d="M68 50 L82 38"/>
+    <path d="M78 34 L86 30 M82 30 L88 36"/>
+    <circle cx="80" cy="35" r="0.8" fill="currentColor"/>
+    <path d="M27 62 L20 82 M35 65 L30 84 M55 65 L58 84 M63 62 L68 81"/>
+    <path d="M24 50 Q12 56 16 66"/>
+  </symbol>
+  <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 7v5l3.5 2"/>
+  </symbol>
+</svg>
+
+<div class="page">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-scene s1">
+      <svg class="pan" viewBox="0 0 500 640" preserveAspectRatio="xMidYMid slice">
+        <rect width="500" height="640" fill="#E3B37A"/>
+        <rect width="500" height="640" fill="url(#skyGrad1)"/>
+        <defs>
+          <linearGradient id="skyGrad1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E8A85C"/>
+            <stop offset="55%" stop-color="#D97F4A"/>
+            <stop offset="100%" stop-color="#B5502F"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="250" cy="120" rx="46" ry="46" fill="#F7DFA0" opacity="0.9"/>
+        <path d="M0 400 Q120 360 260 400 T500 380 V640 H0 Z" fill="#8C6E3A" opacity="0.85"/>
+        <path d="M0 460 Q150 420 300 460 T500 440 V640 H0 Z" fill="#6B5228"/>
+        <g transform="translate(300,380)">
+          <polygon points="0,-70 60,-15 60,60 -60,60 -60,-15" fill="#5C3A22"/>
+          <polygon points="0,-70 70,-10 -70,-10" fill="#3F2716"/>
+          <rect x="-14" y="10" width="28" height="50" fill="#2E1B10"/>
+          <circle cx="0" cy="-15" r="10" fill="#E8A85C" opacity="0.85"/>
+        </g>
+        <g transform="translate(120,470) scale(1.1)" color="#3F2716" opacity="0.9">
+          <use href="#ico-donkey"/>
+        </g>
+        <g transform="translate(165,485) scale(0.8)" color="#3F2716" opacity="0.8">
+          <use href="#ico-donkey"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-scene s2">
+      <svg class="pan" viewBox="0 0 500 640" preserveAspectRatio="xMidYMid slice">
+        <rect width="500" height="640" fill="url(#skyGrad2)"/>
+        <defs>
+          <linearGradient id="skyGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2B2A44"/>
+            <stop offset="60%" stop-color="#4A3A3F"/>
+            <stop offset="100%" stop-color="#211C15"/>
+          </linearGradient>
+        </defs>
+        <g fill="#F3EBDB">
+          <circle cx="60" cy="60" r="1.4"/><circle cx="140" cy="100" r="1"/><circle cx="230" cy="50" r="1.6"/>
+          <circle cx="320" cy="90" r="1"/><circle cx="410" cy="60" r="1.4"/><circle cx="460" cy="140" r="1"/>
+          <circle cx="90" cy="160" r="1"/><circle cx="380" cy="170" r="1.2"/>
+        </g>
+        <path d="M0 430 Q150 400 300 430 T500 420 V640 H0 Z" fill="#3A2E22"/>
+        <g transform="translate(260,360)">
+          <polygon points="0,-70 60,-15 60,70 -60,70 -60,-15" fill="#211A12"/>
+          <polygon points="0,-70 70,-10 -70,-10" fill="#150F0A"/>
+          <rect x="-16" y="10" width="32" height="60" fill="#0F0B07"/>
+          <circle cx="0" cy="-12" r="11" fill="#E7B968"/>
+        </g>
+        <path d="M40 300 Q140 270 260 300 T480 285" stroke="#E7B968" stroke-width="2" fill="none" opacity="0.9"/>
+        <g fill="#E7B968">
+          <circle cx="60" cy="298" r="3"/><circle cx="120" cy="288" r="3"/><circle cx="180" cy="294" r="3"/>
+          <circle cx="240" cy="298" r="3"/><circle cx="300" cy="292" r="3"/><circle cx="360" cy="290" r="3"/>
+          <circle cx="420" cy="286" r="3"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-scene s3">
+      <svg class="pan" viewBox="0 0 500 640" preserveAspectRatio="xMidYMid slice">
+        <rect width="500" height="640" fill="url(#skyGrad3)"/>
+        <defs>
+          <linearGradient id="skyGrad3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#CFC3A3"/>
+            <stop offset="60%" stop-color="#A9A277"/>
+            <stop offset="100%" stop-color="#6B7455"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 380 Q130 340 260 380 T500 360 V640 H0 Z" fill="#8B9268" opacity="0.9"/>
+        <path d="M0 440 Q150 410 300 440 T500 420 V640 H0 Z" fill="#5C6B44"/>
+        <path d="M70 440 C70 380 90 360 90 360 C90 360 110 380 110 440 Z" fill="#4A5636"/>
+        <g transform="translate(340,400) scale(1.1)" color="#3E4A2E" opacity="0.85">
+          <use href="#ico-donkey"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-veil"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Save the date</p>
+      <h1 class="hero-names" id="cfg-names">Prénom &amp; Prénom</h1>
+      <p class="hero-date" id="cfg-date-long">Samedi — date à venir</p>
+      <p class="hero-scroll"><span class="chev">↓</span> faites défiler</p>
+    </div>
+  </header>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro reveal">
+    <p>On se marie — dans une grange, à la campagne, entourés des gens qu'on aime. On serait ravis de vous avoir à nos côtés.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ COUNTDOWN ============ -->
+  <section class="reveal">
+    <div class="section-head">
+      <p class="section-eyebrow">À vos agendas</p>
+      <h2 class="section-title">Le compte à rebours</h2>
+    </div>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="count-tile"><span class="count-num" id="cd-days">--</span><span class="count-label">jours</span></div>
+      <div class="count-tile"><span class="count-num" id="cd-hours">--</span><span class="count-label">heures</span></div>
+      <div class="count-tile"><span class="count-num" id="cd-mins">--</span><span class="count-label">minutes</span></div>
+      <div class="count-tile"><span class="count-num" id="cd-secs">--</span><span class="count-label">secondes</span></div>
+    </div>
+    <a class="calendar-link" id="cfg-calendar-link" href="#" target="_blank" rel="noopener">+ Ajouter à mon calendrier</a>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ INFOS PRATIQUES ============ -->
+  <section class="reveal">
+    <div class="section-head">
+      <p class="section-eyebrow">Bon à savoir</p>
+      <h2 class="section-title">Infos pratiques</h2>
+    </div>
+    <div class="infos-grid">
+      <div class="info-card">
+        <svg class="icon"><use href="#ico-pin"/></svg>
+        <h3>Le lieu</h3>
+        <p id="cfg-venue-name">La Ferme de la Faisanderie</p>
+        <p id="cfg-venue-address" style="margin-top:4px;">Une ferme bio vivante, entre granges en pierre et champs à perte de vue.</p>
+        <p style="margin-top:10px;"><a id="cfg-maps-link" href="#" target="_blank" rel="noopener">Voir l'itinéraire →</a></p>
+      </div>
+      <div class="info-card">
+        <svg class="icon"><use href="#ico-clock"/></svg>
+        <h3>Le programme</h3>
+        <p id="cfg-schedule">Un weekend complet à la ferme : cérémonie, cocktail au milieu des champs, dîner sous la charpente de la Grange à Grains, et DJ jusqu'au bout de la nuit.</p>
+      </div>
+      <div class="info-card">
+        <svg class="icon"><use href="#ico-shirt"/></svg>
+        <h3>La tenue</h3>
+        <p>Chic et simple : chemise et chino pour ces messieurs, robe pour ces dames. Nous serons en pleine campagne — une tenue confortable sera la bienvenue.</p>
+      </div>
+      <div class="info-card">
+        <svg class="icon"><use href="#ico-food"/></svg>
+        <h3>À table</h3>
+        <p id="cfg-food">Traiteurs locaux, produits de saison, bière brassée directement à la ferme — tout est pensé pour être bon, pour vous comme pour la planète. Allergies ou régimes particuliers : dites-le-nous sur le formulaire.</p>
+      </div>
+      <div class="info-card wide donkey-note">
+        <svg><use href="#ico-donkey"/></svg>
+        <p>Le domaine est aussi celui de deux ânes qui ne manqueront pas de venir dire bonjour. Caresses autorisées, sucreries interdites.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RSVP ============ -->
+  <section>
+    <div class="cta-section reveal">
+      <p class="section-eyebrow">Votre réponse</p>
+      <h2 class="section-title" style="margin-bottom:14px;">Serez-vous des nôtres ?</h2>
+      <p class="lede">Un petit clic pour nous confirmer votre présence (et celle de vos éventuels accompagnants) — ça nous aide énormément pour l'organisation.</p>
+      <a class="btn btn-primary" id="cfg-rsvp-btn" href="#" target="_blank" rel="noopener">Je confirme ma présence</a>
+      <p class="rsvp-deadline" id="cfg-rsvp-deadline">Merci de répondre avant le [date à préciser]</p>
+    </div>
+  </section>
+
+  <!-- ============ CAGNOTTE ============ -->
+  <section>
+    <div class="cta-section reveal">
+      <p class="section-eyebrow">Pour nous gâter</p>
+      <h2 class="section-title" style="margin-bottom:14px;">Une cagnotte plutôt que des cadeaux</h2>
+      <p class="lede">Votre présence est le plus beau des cadeaux. Si vous souhaitez tout de même nous offrir quelque chose, une petite cagnotte est ouverte — sans aucune obligation.</p>
+      <a class="btn btn-ghost" id="cfg-cagnotte-btn" href="#" target="_blank" rel="noopener">Accéder à la cagnotte</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="reveal">
+    <p class="sign" id="cfg-footer-names">Prénom &amp; Prénom</p>
+    <svg class="donkeys" viewBox="0 0 220 90" fill="none" stroke="currentColor">
+      <g transform="translate(10,15) scale(0.9)"><use href="#ico-donkey"/></g>
+      <g transform="translate(110,20) scale(0.75)"><use href="#ico-donkey"/></g>
+    </svg>
+    <p class="fine" id="cfg-footer-note">Avec impatience de vous voir tous réunis.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // ------------------------------------------------------------------
+  // CONFIG — modifiez uniquement les valeurs ci-dessous.
+  // ------------------------------------------------------------------
+  var CONFIG = {
+    names: "Prénom & Prénom",
+    weddingDateISO: "2027-04-24T16:30:00",   // AAAA-MM-JJThh:mm:ss (heure locale du lieu)
+    weddingDateLong: "Samedi 24 avril 2027 — 16h30",
+    venueName: "La Ferme de la Faisanderie",
+    venueAddress: "Une ferme bio vivante, entre granges en pierre et champs à perte de vue (adresse précise à venir).",
+    mapsQuery: "La Ferme de la Faisanderie",  // sert à construire le lien Google Maps
+    rsvpDeadline: "1er mai 2026",
+    rsvpUrl: "",       // 👉 collez ici le lien du formulaire RSVP (Google Forms, Tally, etc.)
+    cagnotteUrl: ""    // 👉 collez ici le lien de la cagnotte (Leetchi, Cadeaux.com, etc.)
+  };
+  // ------------------------------------------------------------------
+
+  document.getElementById('cfg-names').textContent = CONFIG.names;
+  document.getElementById('cfg-footer-names').textContent = CONFIG.names;
+  document.getElementById('cfg-date-long').textContent = CONFIG.weddingDateLong;
+  document.getElementById('cfg-venue-name').textContent = CONFIG.venueName;
+  document.getElementById('cfg-venue-address').textContent = CONFIG.venueAddress;
+  document.getElementById('cfg-rsvp-deadline').textContent = "Merci de répondre avant le " + CONFIG.rsvpDeadline;
+
+  document.getElementById('cfg-maps-link').href =
+    "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.mapsQuery);
+
+  var d = new Date(CONFIG.weddingDateISO);
+  var calStart = CONFIG.weddingDateISO.replace(/[-:]/g,'').split('.')[0];
+  var dEnd = new Date(d.getTime() + 6*60*60*1000);
+  var calEnd = dEnd.toISOString().replace(/[-:]/g,'').split('.')[0];
+  document.getElementById('cfg-calendar-link').href =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
+    encodeURIComponent("Mariage de " + CONFIG.names) +
+    "&dates=" + calStart + "/" + calEnd +
+    "&location=" + encodeURIComponent(CONFIG.venueName) +
+    "&details=" + encodeURIComponent("On vous attend !");
+
+  function wireExternalButton(id, url){
+    var el = document.getElementById(id);
+    if(url){
+      el.href = url;
+    } else {
+      el.removeAttribute('href');
+      el.setAttribute('aria-disabled','true');
+      el.textContent = el.textContent + ' — lien à venir';
+      el.addEventListener('click', function(e){ e.preventDefault(); });
+    }
+  }
+  wireExternalButton('cfg-rsvp-btn', CONFIG.rsvpUrl);
+  wireExternalButton('cfg-cagnotte-btn', CONFIG.cagnotteUrl);
+
+  // countdown
+  function tick(){
+    var now = new Date().getTime();
+    var diff = d.getTime() - now;
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff/(1000*60*60*24));
+    var hours = Math.floor((diff/(1000*60*60))%24);
+    var mins = Math.floor((diff/(1000*60))%60);
+    var secs = Math.floor((diff/1000)%60);
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
