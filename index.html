@@ -99,7 +99,7 @@ h1,h2,h3,.display{
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
-  min-height:min(86vh, 740px);
+  min-height:min(80vh, 700px);
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -113,14 +113,16 @@ h1,h2,h3,.display{
 .hero-photo img{
   width:100%;height:100%;
   object-fit:cover;
-  object-position:center 20%;
+  object-position:center 15%;
   display:block;
-  animation: pan-slow 24s ease-in-out infinite;
+  will-change:transform;
+  backface-visibility:hidden;
+  animation: pan-slow 26s ease-in-out infinite;
 }
 @keyframes pan-slow{
-  0%{transform:scale(1.04) translateY(0);}
-  50%{transform:scale(1.1) translateY(-1.5%);}
-  100%{transform:scale(1.04) translateY(0);}
+  0%{transform:scale(1.0);}
+  50%{transform:scale(1.045);}
+  100%{transform:scale(1.0);}
 }
 @media (prefers-reduced-motion: reduce){
   .hero-photo img{animation:none;}
@@ -372,20 +374,33 @@ section{padding:52px 28px;}
 
 /* ---------- FOOTER ---------- */
 footer{
+  position:relative;
   text-align:center;
-  padding:48px 28px 60px;
-  background:var(--surface-2);
+  padding:70px 28px 76px;
+  min-height:360px;
+  overflow:hidden;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
+.footer-photo{position:absolute;inset:0;z-index:0;}
+.footer-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;}
+.footer-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg, rgba(16,20,14,0.4) 0%, rgba(16,20,14,0.72) 100%);
+}
+.footer-content{position:relative;z-index:2;}
 footer .sign{
   font-family:'Fraunces',serif;
-  font-size:1.4rem;
+  font-size:1.5rem;
   font-weight:600;
-  color:var(--ink);
+  color:#FFFBF1;
   margin-bottom:14px;
 }
 footer .donkeys{
   width:110px;height:auto;
-  color:var(--terracotta);
+  color:var(--solar);
   margin:0 auto 16px;
   display:block;
   animation:donkey-wiggle 4.5s ease-in-out infinite;
@@ -396,8 +411,8 @@ footer .donkeys{
   50%{transform:rotate(-2.5deg);}
 }
 footer .fine{
-  font-size:0.78rem;
-  color:var(--ink-muted);
+  font-size:0.82rem;
+  color:#EAE0C8;
 }
 </style>
 
@@ -526,12 +541,16 @@ footer .fine{
 
   <!-- ============ FOOTER ============ -->
   <footer class="reveal">
-    <p class="sign" id="cfg-footer-names">Awéna &amp; Grégoire</p>
-    <svg class="donkeys" viewBox="0 0 220 90" fill="none" stroke="currentColor">
-      <g transform="translate(10,15) scale(0.9)"><use href="#ico-donkey" width="100" height="100"/></g>
-      <g transform="translate(110,20) scale(0.75)"><use href="#ico-donkey" width="100" height="100"/></g>
-    </svg>
-    <p class="fine" id="cfg-footer-note">Avec impatience de vous voir tous réunis.</p>
+    <div class="footer-photo"><img src="photos/lieu-soir.jpg" alt="La Ferme de la Faisanderie, un soir de fête" loading="lazy"></div>
+    <div class="footer-veil"></div>
+    <div class="footer-content">
+      <p class="sign" id="cfg-footer-names">Awéna &amp; Grégoire</p>
+      <svg class="donkeys" viewBox="0 0 220 90" fill="none" stroke="currentColor">
+        <g transform="translate(10,15) scale(0.9)"><use href="#ico-donkey" width="100" height="100"/></g>
+        <g transform="translate(110,20) scale(0.75)"><use href="#ico-donkey" width="100" height="100"/></g>
+      </svg>
+      <p class="fine" id="cfg-footer-note">Avec impatience de vous voir tous réunis.</p>
+    </div>
   </footer>
 
 </div>

@@ -101,6 +101,9 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
   box-shadow:0 14px 26px -16px rgba(20,30,45,0.4);
   border:5px solid var(--surface);
   background:var(--surface);
+  will-change:transform;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
 }
 .card:nth-child(odd) .card-photo{transform:rotate(-3deg);}
 .card:nth-child(even) .card-photo{transform:rotate(2.5deg);}
@@ -255,6 +258,10 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
           <div class="card-photo"><img src="photos/elle-resp-05.jpg" alt="" loading="lazy"></div>
           <p class="card-caption">Pas de flûte avec elle — juste elle.</p>
         </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/elle-resp-06.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Queen, acte 3.</p>
+        </div>
       </div>
     </div>
 
@@ -280,6 +287,10 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
         <div class="card">
           <div class="card-photo"><img src="photos/lui-resp-05.jpg" alt="" loading="lazy"></div>
           <p class="card-caption">Quand il cherche bien, il trouve. Pan, pan !</p>
+        </div>
+        <div class="card">
+          <div class="card-photo"><img src="photos/lui-resp-06.jpg" alt="" loading="lazy"></div>
+          <p class="card-caption">Un homme responsable, version escalade.</p>
         </div>
       </div>
     </div>
