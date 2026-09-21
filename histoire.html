@@ -1,37 +1,44 @@
 <title>Notre histoire</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg:#F6F0E4;
-  --surface:#FBF7EE;
-  --text:#2E2A22;
-  --text-muted:#6B6152;
-  --accent:#B5502F;
-  --accent-ink:#FBF3EA;
-  --accent-2:#5C6B44;
-  --line:#E1D5BC;
-  --shadow: 0 18px 40px -24px rgba(46,38,22,0.35);
-  --slot-bg:#EFE6D4;
-  --slot-border:#D8C9A8;
+  --bg:#FBF3E2;
+  --surface:#FFFEFA;
+  --ink:#1F3350;
+  --ink-muted:#5C6E82;
+  --azure:#2C86D4;
+  --deep-blue:#1B4870;
+  --turquoise:#1FA79A;
+  --prairie:#6FA23E;
+  --olive:#7C8A4E;
+  --solar:#F4B93A;
+  --ocre:#DD9A3D;
+  --terracotta:#D2643A;
+  --violet:#8C74B5;
+  --line:#EFE2C8;
+  --cream-ink:#FFFBF1;
+  --shadow: 0 10px 26px -18px rgba(31,51,80,0.28);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#211C15; --surface:#2A2319; --text:#F3EBDB; --text-muted:#BDAF97;
-    --accent:#E07A50; --accent-ink:#241109; --accent-2:#93A56C; --line:#3B3225;
-    --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
-    --slot-bg:#2C2519; --slot-border:#463A28;
+    --bg:#152233; --surface:#1E2E44; --ink:#F2EBDA; --ink-muted:#AEB9C9;
+    --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
+    --olive:#9CAE6E; --solar:#F7C860; --ocre:#E8B364; --terracotta:#E58260;
+    --violet:#A98CD1; --line:#2D3F58; --cream-ink:#1B140B;
+    --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#211C15; --surface:#2A2319; --text:#F3EBDB; --text-muted:#BDAF97;
-  --accent:#E07A50; --accent-ink:#241109; --accent-2:#93A56C; --line:#3B3225;
-  --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
-  --slot-bg:#2C2519; --slot-border:#463A28;
+  --bg:#152233; --surface:#1E2E44; --ink:#F2EBDA; --ink-muted:#AEB9C9;
+  --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
+  --olive:#9CAE6E; --solar:#F7C860; --ocre:#E8B364; --terracotta:#E58260;
+  --violet:#A98CD1; --line:#2D3F58; --cream-ink:#1B140B;
+  --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
 }
 
 *{box-sizing:border-box;}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
@@ -49,115 +56,97 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
   border-bottom:1px solid var(--line);
 }
 .topbar a{
-  font-family:'Karla',sans-serif;
+  font-family:'Work Sans',sans-serif;
   font-size:0.78rem;
-  font-weight:600;
+  font-weight:700;
   text-decoration:none;
   white-space:nowrap;
 }
-.back-link{color:var(--text-muted);}
+.back-link{color:var(--deep-blue);}
 .skip-link{
-  color:var(--accent-ink);
-  background:var(--accent);
-  padding:9px 16px;
+  color:var(--cream-ink);
+  background:var(--terracotta);
+  padding:9px 18px;
   border-radius:999px;
+  transition:transform 0.15s ease;
 }
+.skip-link:hover{transform:translateY(-1px);}
 
 /* ---------- STORY HERO ---------- */
 .story-hero{
   text-align:center;
-  padding:56px 26px 44px;
+  padding:52px 26px 40px;
 }
 .story-eyebrow{
-  font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--accent-2);margin:0 0 12px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--terracotta);margin:0 0 12px;
 }
-.story-title{font-size:clamp(2.1rem,8vw,2.7rem);font-style:italic;line-height:1.15;}
+.story-title{font-size:clamp(2.1rem,8vw,2.7rem);line-height:1.15;}
 .story-sub{
-  margin-top:16px;font-size:0.95rem;color:var(--text-muted);
+  margin-top:16px;font-size:0.95rem;color:var(--ink-muted);
   max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.6;
 }
 
 /* ---------- CHAPTERS ---------- */
-.chapter{padding:60px 26px;transition:background 0.6s ease;}
-.chapter.muted{background:color-mix(in srgb, var(--slot-bg) 55%, var(--bg));}
-.chapter.vivid{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--bg)) 0%, var(--bg) 100%);
-}
+.chapter{padding:56px 26px;color:var(--cream-ink);}
+.chapter.ch1{background:var(--ocre);}
+.chapter.ch2{background:var(--olive);}
+.chapter.ch3{background:var(--azure);}
 .chapter-label{
-  font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--accent-2);margin:0 0 10px;text-align:center;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  opacity:0.85;margin:0 0 10px;text-align:center;
 }
 .chapter-title{
-  font-size:1.8rem;text-align:center;margin-bottom:18px;
+  font-size:1.8rem;text-align:center;margin-bottom:18px;color:var(--cream-ink);
 }
 .chapter-text{
-  font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;
-  line-height:1.6;color:var(--text);text-align:center;
-  max-width:32ch;margin:0 auto 32px;
+  font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;
+  line-height:1.6;text-align:center;
+  max-width:32ch;margin:0 auto 32px;color:var(--cream-ink);
 }
-.vivid .chapter-text{color:var(--text);}
 
 /* ---------- PHOTO SLOTS ---------- */
 .photo-row{display:grid;gap:12px;}
 .photo-row.two{grid-template-columns:1fr 1fr;}
 .photo-row.one{grid-template-columns:1fr;}
 .photo-slot{
-  position:relative;
-  background:var(--slot-bg);
-  border:1px dashed var(--slot-border);
-  border-radius:16px;
+  background:var(--surface);
+  border-radius:18px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:10px;
   padding:18px 14px;
-  color:var(--text-muted);
+  color:var(--ink-muted);
   text-align:center;
-  transform:rotate(-1.2deg);
-  transition:transform 0.2s ease;
-}
-.photo-slot:hover{transform:rotate(0deg) translateY(-2px);}
-.photo-row.two .photo-slot:nth-child(2){transform:rotate(1.4deg);}
-.photo-row.two .photo-slot:nth-child(2):hover{transform:rotate(0deg) translateY(-2px);}
-.photo-slot::before{
-  content:"";
-  position:absolute;
-  top:-9px;left:50%;
-  width:42px;height:14px;
-  margin-left:-21px;
-  background:color-mix(in srgb, var(--accent) 55%, transparent);
-  border-radius:2px;
-  transform:rotate(-3deg);
-  box-shadow:0 2px 5px rgba(30,20,10,0.18);
+  box-shadow:0 10px 24px -16px rgba(0,0,0,0.3);
 }
 .photo-slot.portrait{aspect-ratio:3/4;}
 .photo-slot.landscape{aspect-ratio:4/3;}
 .photo-slot.tall{aspect-ratio:3/4;}
-.chapter.vivid .photo-slot{
-  aspect-ratio:3/4;
-  border-color:color-mix(in srgb, var(--accent) 45%, var(--slot-border));
-  box-shadow:var(--shadow);
+.photo-slot .cam-badge{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ink);opacity:0.15;
 }
-.photo-slot .cam{width:26px;height:26px;opacity:0.6;}
-.photo-slot span{font-size:0.78rem;font-style:italic;line-height:1.4;max-width:22ch;}
+.photo-slot .cam{width:18px;height:18px;color:var(--ink);}
+.photo-slot span{font-size:0.78rem;font-style:italic;line-height:1.4;max-width:22ch;color:var(--ink-muted);}
 
 /* ---------- EPILOGUE ---------- */
-.epilogue{text-align:center;padding:64px 26px 80px;}
+.epilogue{text-align:center;padding:60px 26px 76px;}
+.epilogue .chapter-label{color:var(--terracotta);}
+.epilogue .chapter-title{color:var(--ink);}
 .epilogue p.lede{
-  font-size:0.98rem;color:var(--text-muted);max-width:36ch;
+  font-size:0.98rem;color:var(--ink-muted);max-width:36ch;
   margin:0 auto 28px;line-height:1.65;
 }
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Karla',sans-serif;font-weight:600;font-size:0.95rem;
-  padding:15px 30px;border-radius:999px;text-decoration:none;
-  background:var(--accent);color:var(--accent-ink);
-  box-shadow:0 14px 28px -14px color-mix(in srgb, var(--accent) 70%, transparent);
+  font-family:'Work Sans',sans-serif;font-weight:700;font-size:0.95rem;
+  padding:16px 32px;border-radius:999px;text-decoration:none;
+  background:var(--terracotta);color:var(--cream-ink);
   transition:transform 0.15s ease;
 }
-.btn:hover{transform:translateY(-2px) rotate(-1deg);}
-.skip-link{transition:transform 0.15s ease;}
-.skip-link:hover{transform:translateY(-1px) rotate(-1deg);}
-a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+.btn:hover{transform:translateY(-2px);}
+a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:4px;}
 
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease, transform 0.7s ease;}
@@ -165,7 +154,7 @@ a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--accent);outli
 </style>
 
 <svg style="display:none" aria-hidden="true">
-  <symbol id="ico-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+  <symbol id="ico-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
     <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/>
     <circle cx="12" cy="13" r="3.4"/>
   </symbol>
@@ -185,47 +174,47 @@ a:focus-visible, .photo-slot:focus-visible{outline:2px solid var(--accent);outli
   </header>
 
   <!-- ============ CHAPITRE I ============ -->
-  <section class="chapter muted reveal">
+  <section class="chapter ch1 reveal">
     <p class="chapter-label">Chapitre I</p>
     <h2 class="chapter-title">Le pèlerin</h2>
     <p class="chapter-text">C'était un jeune pèlerin, parti à la recherche de l'amour. Il a marché — beaucoup marché. Des routes, des pays, des sentiers qui ne menaient nulle part en particulier, sinon vers la suite de l'histoire.</p>
     <div class="photo-row two">
       <div class="photo-slot portrait">
-        <svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg>
+        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
         <span>Photo : toi, en chemin quelque part dans le monde</span>
       </div>
       <div class="photo-slot portrait">
-        <svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg>
+        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
         <span>Photo : toi, encore en train de marcher</span>
       </div>
     </div>
   </section>
 
   <!-- ============ CHAPITRE II ============ -->
-  <section class="chapter muted reveal">
+  <section class="chapter ch2 reveal">
     <p class="chapter-label">Chapitre II</p>
     <h2 class="chapter-title">Sérieux, en apparence</h2>
     <p class="chapter-text">Un homme sérieux, pourtant. Du sérieux dans le regard, de la rigueur dans le pas. Enfin... ça dépendait vraiment des jours.</p>
     <div class="photo-row two">
       <div class="photo-slot landscape">
-        <svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg>
+        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
         <span>Photo : toi, très sérieux (si si)</span>
       </div>
       <div class="photo-slot landscape">
-        <svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg>
+        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
         <span>Photo : toi, en train de faire le pitre</span>
       </div>
     </div>
   </section>
 
   <!-- ============ CHAPITRE III ============ -->
-  <section class="chapter vivid reveal">
+  <section class="chapter ch3 reveal">
     <p class="chapter-label">Chapitre III</p>
     <h2 class="chapter-title">Et puis, il l'a trouvée</h2>
     <p class="chapter-text">Depuis, il ne marche plus vraiment pour chercher — juste pour la suivre.</p>
     <div class="photo-row one">
       <div class="photo-slot tall">
-        <svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg>
+        <div class="cam-badge"><svg class="cam"><use href="#ico-cam" width="24" height="24"/></svg></div>
         <span>Photo : elle, superbe (comme toujours)</span>
       </div>
     </div>

@@ -1,62 +1,93 @@
 <title>Rendez-vous à la Grange</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg:#F6F0E4;
-  --surface:#FBF7EE;
-  --surface-2:#F0E7D5;
-  --text:#2E2A22;
-  --text-muted:#6B6152;
-  --accent:#B5502F;
-  --accent-ink:#FBF3EA;
-  --accent-2:#5C6B44;
-  --gold:#B8923C;
-  --line:#E1D5BC;
-  --shadow: 0 18px 40px -24px rgba(46,38,22,0.35);
+  --bg:#FBF3E2;
+  --surface:#FFFEFA;
+  --surface-2:#F3E9D2;
+  --ink:#1F3350;
+  --ink-muted:#5C6E82;
+  --azure:#2C86D4;
+  --deep-blue:#1B4870;
+  --turquoise:#1FA79A;
+  --prairie:#6FA23E;
+  --olive:#7C8A4E;
+  --solar:#F4B93A;
+  --ocre:#DD9A3D;
+  --terracotta:#D2643A;
+  --rose:#E7A79E;
+  --violet:#8C74B5;
+  --line:#EFE2C8;
+  --cream-ink:#FFFBF1;
+  --shadow: 0 10px 26px -18px rgba(31,51,80,0.28);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#211C15;
-    --surface:#2A2319;
-    --surface-2:#332B1E;
-    --text:#F3EBDB;
-    --text-muted:#BDAF97;
-    --accent:#E07A50;
-    --accent-ink:#241109;
-    --accent-2:#93A56C;
-    --gold:#D9B65B;
-    --line:#3B3225;
-    --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
+    --bg:#152233;
+    --surface:#1E2E44;
+    --surface-2:#233A55;
+    --ink:#F2EBDA;
+    --ink-muted:#AEB9C9;
+    --azure:#5AA9E6;
+    --deep-blue:#3E76B0;
+    --turquoise:#3FC7B8;
+    --prairie:#8FC15C;
+    --olive:#9CAE6E;
+    --solar:#F7C860;
+    --ocre:#E8B364;
+    --terracotta:#E58260;
+    --rose:#EFC0B9;
+    --violet:#A98CD1;
+    --line:#2D3F58;
+    --cream-ink:#1B140B;
+    --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#211C15;
-  --surface:#2A2319;
-  --surface-2:#332B1E;
-  --text:#F3EBDB;
-  --text-muted:#BDAF97;
-  --accent:#E07A50;
-  --accent-ink:#241109;
-  --accent-2:#93A56C;
-  --gold:#D9B65B;
-  --line:#3B3225;
-  --shadow: 0 18px 40px -20px rgba(0,0,0,0.55);
+  --bg:#152233;
+  --surface:#1E2E44;
+  --surface-2:#233A55;
+  --ink:#F2EBDA;
+  --ink-muted:#AEB9C9;
+  --azure:#5AA9E6;
+  --deep-blue:#3E76B0;
+  --turquoise:#3FC7B8;
+  --prairie:#8FC15C;
+  --olive:#9CAE6E;
+  --solar:#F7C860;
+  --ocre:#E8B364;
+  --terracotta:#E58260;
+  --rose:#EFC0B9;
+  --violet:#A98CD1;
+  --line:#2D3F58;
+  --cream-ink:#1B140B;
+  --shadow: 0 10px 26px -16px rgba(0,0,0,0.5);
 }
 
 *{box-sizing:border-box;}
 body{
   margin:0;
   background:var(--bg);
-  color:var(--text);
-  font-family:'Karla',system-ui,sans-serif;
+  color:var(--ink);
+  font-family:'Work Sans',system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.5;
+  background-image:radial-gradient(rgba(31,51,80,0.05) 1px, transparent 1px);
+  background-size:3px 3px;
 }
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
 
-.page{max-width:600px;margin:0 auto;position:relative;}
+.page{max-width:600px;margin:0 auto;position:relative;z-index:1;}
 
 h1,h2,h3,.display{
   font-family:'Fraunces',serif;
@@ -68,7 +99,7 @@ h1,h2,h3,.display{
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
-  min-height:min(88vh, 760px);
+  min-height:min(86vh, 740px);
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -91,10 +122,10 @@ h1,h2,h3,.display{
   36%{opacity:0;}
   100%{opacity:0;}
 }
-.hero-scene .pan{animation: pan-slow 18s ease-in-out infinite;}
+.hero-scene .pan{animation: pan-slow 20s ease-in-out infinite;}
 @keyframes pan-slow{
   0%{transform:scale(1.04) translateX(0);}
-  50%{transform:scale(1.1) translateX(-1.5%);}
+  50%{transform:scale(1.09) translateX(-1.2%);}
   100%{transform:scale(1.04) translateX(0);}
 }
 @media (prefers-reduced-motion: reduce){
@@ -105,77 +136,84 @@ h1,h2,h3,.display{
 
 .hero-veil{
   position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(33,28,21,0.05) 0%, rgba(33,28,21,0.15) 55%, rgba(33,28,21,0.78) 100%);
+  background:linear-gradient(180deg, rgba(20,30,45,0.02) 0%, rgba(20,30,45,0.18) 52%, rgba(18,26,38,0.82) 100%);
   z-index:1;
 }
 .hero-content{
   position:relative;z-index:2;
   padding:28px 28px 40px;
-  color:#F9F1E4;
+  color:#FBF3E2;
 }
 .eyebrow{
-  font-family:'Karla',sans-serif;
+  font-family:'Work Sans',sans-serif;
   font-size:0.72rem;
+  font-weight:600;
   letter-spacing:0.22em;
   text-transform:uppercase;
-  color:#E9DCC2;
+  color:var(--solar);
   margin:0 0 10px;
 }
 .hero-names{
   font-size:clamp(2.6rem, 11vw, 3.6rem);
-  font-style:italic;
   line-height:1.05;
-  color:#FBF3E4;
+  color:#FFFCF3;
 }
 .hero-date{
   margin-top:14px;
-  font-family:'Karla',sans-serif;
+  font-family:'Work Sans',sans-serif;
+  font-weight:500;
   font-size:1rem;
-  letter-spacing:0.08em;
-  color:#EDE0C6;
+  letter-spacing:0.03em;
+  color:#EAE0C8;
 }
 .hero-scroll{
   margin-top:26px;
   font-size:0.78rem;
-  color:#D8C9A8;
+  color:#D8CBA9;
   display:flex;align-items:center;gap:8px;
 }
 .hero-scroll .chev{animation:bob 2.2s ease-in-out infinite;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
 
+/* ---------- LANDSCAPE DIVIDERS ---------- */
+.landscape-divider{
+  display:block;width:100%;height:52px;
+  line-height:0;
+}
+.landscape-divider svg{width:100%;height:100%;display:block;}
+.fill-surface-2{fill:var(--surface-2);}
+.fill-bg{fill:var(--bg);}
+.fill-turquoise{fill:var(--turquoise);}
+
 /* ---------- SHARED SECTION RHYTHM ---------- */
-section{padding:56px 28px;}
+section{padding:52px 28px;}
 .intro{
   text-align:center;
-  padding-top:64px;
+  padding-top:60px;
+  background:var(--turquoise);
 }
 .intro p{
   font-family:'Fraunces',serif;
-  font-style:italic;
-  font-size:1.3rem;
+  font-size:1.25rem;
+  font-weight:500;
   line-height:1.5;
-  color:var(--text);
+  color:var(--cream-ink);
   max-width:26ch;
   margin:0 auto;
 }
-.divider{
-  display:flex;align-items:center;gap:14px;
-  padding:0 28px;
-}
-.divider-line{flex:1;height:1px;background:var(--line);}
-.divider-ico{width:18px;height:18px;flex:none;color:var(--accent-2);opacity:0.8;}
-.section-head{text-align:center;margin-bottom:32px;}
+.section-head{text-align:center;margin-bottom:30px;}
 .section-eyebrow{
   font-size:0.72rem;
-  letter-spacing:0.22em;
+  font-weight:600;
+  letter-spacing:0.2em;
   text-transform:uppercase;
-  color:var(--accent-2);
+  color:var(--terracotta);
   margin:0 0 8px;
 }
-.section-title{font-size:1.9rem;color:var(--text);}
+.section-title{font-size:1.85rem;color:var(--ink);}
 
 /* reveal-on-scroll */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease, transform 0.7s ease;}
 .reveal.is-visible{opacity:1;transform:translateY(0);}
 
 /* ---------- COUNTDOWN ---------- */
@@ -187,47 +225,46 @@ section{padding:56px 28px;}
   margin:0 auto;
 }
 .count-tile{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:14px 4px;
+  border-radius:16px;
+  padding:16px 4px;
   text-align:center;
-  box-shadow:var(--shadow);
-  transform:rotate(-1.5deg);
-  transition:transform 0.2s ease;
+  color:var(--cream-ink);
 }
-.count-tile:hover{transform:rotate(0deg) translateY(-2px);}
-.count-tile:nth-child(2n){transform:rotate(1.5deg);}
-.count-tile:nth-child(2n):hover{transform:rotate(0deg) translateY(-2px);}
+.count-tile:nth-child(1){background:var(--azure);}
+.count-tile:nth-child(2){background:var(--terracotta);}
+.count-tile:nth-child(3){background:var(--olive);}
+.count-tile:nth-child(4){background:var(--ocre);}
 .count-num{
   font-family:'Fraunces',serif;
   font-size:1.7rem;
+  font-weight:600;
   font-variant-numeric:tabular-nums;
-  color:var(--accent);
+  color:var(--cream-ink);
   display:block;
 }
-.count-tile:nth-child(2) .count-num{color:var(--accent-2);}
-.count-tile:nth-child(3) .count-num{color:var(--gold);}
 .count-label{
   font-size:0.62rem;
-  letter-spacing:0.12em;
+  font-weight:600;
+  letter-spacing:0.1em;
   text-transform:uppercase;
-  color:var(--text-muted);
+  color:var(--cream-ink);
+  opacity:0.85;
 }
 .calendar-link{
   display:block;
   text-align:center;
   margin-top:20px;
   font-size:0.85rem;
-  color:var(--accent-2);
+  font-weight:600;
+  color:var(--deep-blue);
   text-decoration:none;
-  border-bottom:1px solid currentColor;
+  border-bottom:1.5px solid currentColor;
   width:max-content;
   margin-left:auto;margin-right:auto;
   padding-bottom:2px;
 }
 .calendar-link:focus-visible, a:focus-visible, button:focus-visible{
-  outline:2px solid var(--accent);
+  outline:2px solid var(--azure);
   outline-offset:3px;
   border-radius:2px;
 }
@@ -242,84 +279,56 @@ section{padding:56px 28px;}
   .infos-grid{grid-template-columns:1fr 1fr;}
 }
 .info-card{
-  position:relative;
   background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:26px 20px 22px;
+  border-radius:18px;
+  padding:24px 20px;
   box-shadow:var(--shadow);
-  transform:rotate(-0.6deg);
-  transition:transform 0.2s ease;
 }
-.info-card:hover{transform:rotate(0deg) translateY(-2px);}
-.info-card:nth-child(2n){transform:rotate(0.7deg);}
-.info-card:nth-child(2n):hover{transform:rotate(0deg) translateY(-2px);}
-.info-card::before{
-  content:"";
-  position:absolute;
-  top:-9px;left:26px;
-  width:44px;height:15px;
-  background:color-mix(in srgb, var(--gold) 60%, transparent);
-  border-radius:2px;
-  transform:rotate(-4deg);
-  box-shadow:0 2px 5px rgba(30,20,10,0.2);
+.icon-badge{
+  width:42px;height:42px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
 }
-.info-card:nth-child(2n)::before{
-  left:auto;right:26px;
-  background:color-mix(in srgb, var(--accent) 55%, transparent);
-  transform:rotate(3deg);
-}
-.info-card.wide{transform:rotate(0.3deg);}
-.info-card.wide:hover{transform:rotate(0deg) translateY(-2px);}
-.info-card .icon{
-  width:30px;height:30px;
-  color:var(--accent-2);
-  margin-bottom:12px;
-  display:block;
-}
+.icon-badge svg{width:20px;height:20px;color:#fff;}
+.info-card:nth-child(4n+1) .icon-badge{background:var(--azure);}
+.info-card:nth-child(4n+2) .icon-badge{background:var(--terracotta);}
+.info-card:nth-child(4n+3) .icon-badge{background:var(--olive);}
+.info-card:nth-child(4n+4) .icon-badge{background:var(--ocre);}
 .info-card h3{
   font-size:1.05rem;
   margin-bottom:6px;
-  color:var(--text);
+  color:var(--ink);
 }
 .info-card p{
   margin:0;
   font-size:0.92rem;
   line-height:1.55;
-  color:var(--text-muted);
+  color:var(--ink-muted);
 }
-.info-card a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;}
+.info-card a{color:var(--deep-blue);text-decoration:none;border-bottom:1.5px solid currentColor;font-weight:600;}
 .info-card.wide{grid-column:1 / -1;}
 .donkey-note{
   display:flex;
-  gap:14px;
-  align-items:flex-start;
+  gap:16px;
+  align-items:center;
+  background:var(--rose);
 }
-.donkey-note svg{flex:none;width:46px;height:46px;color:var(--accent-2);}
+.donkey-note .icon-badge{background:var(--violet);margin-bottom:0;flex:none;}
+.donkey-note p{color:var(--deep-blue);font-weight:500;}
 
 /* ---------- CTA SECTIONS ---------- */
 .cta-section{
-  position:relative;
   text-align:center;
-  background:var(--surface-2);
-  border-radius:20px;
+  background:var(--surface);
+  border-radius:24px;
   margin:0 20px;
-  padding:48px 26px;
-}
-.cta-section::before{
-  content:"";
-  position:absolute;
-  top:-10px;left:50%;
-  width:56px;height:16px;
-  margin-left:-28px;
-  background:color-mix(in srgb, var(--gold) 60%, transparent);
-  border-radius:2px;
-  transform:rotate(-2deg);
-  box-shadow:0 2px 5px rgba(30,20,10,0.2);
+  padding:44px 26px;
+  box-shadow:var(--shadow);
 }
 .cta-section p.lede{
   font-size:0.95rem;
-  color:var(--text-muted);
+  color:var(--ink-muted);
   max-width:36ch;
   margin:0 auto 26px;
   line-height:1.6;
@@ -328,66 +337,63 @@ section{padding:56px 28px;}
   display:inline-flex;
   align-items:center;
   gap:10px;
-  font-family:'Karla',sans-serif;
-  font-weight:600;
+  font-family:'Work Sans',sans-serif;
+  font-weight:700;
   font-size:0.95rem;
-  letter-spacing:0.02em;
-  padding:15px 30px;
+  letter-spacing:0.01em;
+  padding:16px 32px;
   border-radius:999px;
   text-decoration:none;
-  border:1px solid transparent;
+  border:2px solid transparent;
   cursor:pointer;
   transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
-.btn:hover{transform:translateY(-2px) rotate(-1deg);}
+.btn:hover{transform:translateY(-2px);}
 .btn-primary{
-  background:var(--accent);
-  color:var(--accent-ink);
-  box-shadow:0 14px 28px -14px color-mix(in srgb, var(--accent) 70%, transparent);
+  background:var(--terracotta);
+  color:var(--cream-ink);
 }
 .btn-ghost{
   background:transparent;
-  color:var(--accent);
-  border-color:var(--accent);
+  color:var(--deep-blue);
+  border-color:var(--deep-blue);
 }
 .story-cta{
-  margin-top:30px;
-  font-size:1.05rem;
-  padding:17px 32px;
+  margin-top:28px;
+  font-size:1.02rem;
+  background:var(--azure);
+  color:var(--cream-ink);
+  border-color:var(--azure);
 }
 .btn[aria-disabled="true"]{
-  opacity:0.55;
+  opacity:0.5;
   cursor:not-allowed;
   transform:none !important;
   box-shadow:none;
 }
-.btn-note{
-  margin-top:14px;
-  font-size:0.78rem;
-  color:var(--text-muted);
-}
 .rsvp-deadline{
   font-size:0.8rem;
-  color:var(--accent-2);
+  color:var(--terracotta);
   margin-top:16px;
-  font-weight:600;
+  font-weight:700;
 }
 
 /* ---------- FOOTER ---------- */
 footer{
   text-align:center;
-  padding:52px 28px 60px;
+  padding:48px 28px 60px;
+  background:var(--surface-2);
 }
 footer .sign{
   font-family:'Fraunces',serif;
-  font-style:italic;
   font-size:1.4rem;
-  color:var(--text);
+  font-weight:600;
+  color:var(--ink);
   margin-bottom:14px;
 }
 footer .donkeys{
-  width:120px;height:auto;
-  color:var(--accent-2);
+  width:110px;height:auto;
+  color:var(--terracotta);
   margin:0 auto 16px;
   display:block;
   animation:donkey-wiggle 4.5s ease-in-out infinite;
@@ -399,19 +405,19 @@ footer .donkeys{
 }
 footer .fine{
   font-size:0.78rem;
-  color:var(--text-muted);
+  color:var(--ink-muted);
 }
 </style>
 
 <svg style="display:none" aria-hidden="true">
-  <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+  <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
     <path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z"/>
     <circle cx="12" cy="9" r="2.4"/>
   </symbol>
-  <symbol id="ico-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+  <symbol id="ico-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
     <path d="M8 3 4 6l1.5 3L8 8v13h8V8l2.5 1L20 6l-4-3-2 2h-4L8 3Z"/>
   </symbol>
-  <symbol id="ico-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+  <symbol id="ico-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
     <path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M17 3c-2 0-3 2-3 5s1 4 3 4M17 3v18"/>
   </symbol>
   <symbol id="ico-donkey" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -422,14 +428,9 @@ footer .fine{
     <path d="M27 62 L20 82 M35 65 L30 84 M55 65 L58 84 M63 62 L68 81"/>
     <path d="M24 50 Q12 56 16 66"/>
   </symbol>
-  <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+  <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
     <circle cx="12" cy="12" r="9"/>
     <path d="M12 7v5l3.5 2"/>
-  </symbol>
-  <symbol id="ico-sprig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 21V9"/>
-    <path d="M12 13c0-3 -2-5-5-5.5C7.5 10.5 9.5 13 12 13Z"/>
-    <path d="M12 9c0-3 2-5 5-5.5C16.5 6.5 14.5 9 12 9Z"/>
   </symbol>
 </svg>
 
@@ -439,28 +440,41 @@ footer .fine{
   <header class="hero">
     <div class="hero-scene s1">
       <svg class="pan" viewBox="0 0 500 640" preserveAspectRatio="xMidYMid slice">
-        <rect width="500" height="640" fill="#E3B37A"/>
         <rect width="500" height="640" fill="url(#skyGrad1)"/>
         <defs>
           <linearGradient id="skyGrad1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#E8A85C"/>
-            <stop offset="55%" stop-color="#D97F4A"/>
-            <stop offset="100%" stop-color="#B5502F"/>
+            <stop offset="0%" stop-color="#F6C94A"/>
+            <stop offset="45%" stop-color="#F2A94F"/>
+            <stop offset="100%" stop-color="#E68A52"/>
           </linearGradient>
         </defs>
-        <ellipse cx="250" cy="120" rx="46" ry="46" fill="#F7DFA0" opacity="0.9"/>
-        <path d="M0 400 Q120 360 260 400 T500 380 V640 H0 Z" fill="#8C6E3A" opacity="0.85"/>
-        <path d="M0 460 Q150 420 300 460 T500 440 V640 H0 Z" fill="#6B5228"/>
-        <g transform="translate(300,380)">
-          <polygon points="0,-70 60,-15 60,60 -60,60 -60,-15" fill="#5C3A22"/>
-          <polygon points="0,-70 70,-10 -70,-10" fill="#3F2716"/>
-          <rect x="-14" y="10" width="28" height="50" fill="#2E1B10"/>
-          <circle cx="0" cy="-15" r="10" fill="#E8A85C" opacity="0.85"/>
+        <circle cx="250" cy="130" r="52" fill="#FBE388"/>
+        <path d="M0 330 Q130 280 260 330 T500 300 V640 H0 Z" fill="#7C8A4E"/>
+        <path d="M0 400 Q140 350 280 400 T500 370 V640 H0 Z" fill="#DD9A3D"/>
+        <g fill="#FFFBF1" opacity="0.9">
+          <rect x="255" y="358" width="14" height="12" rx="1"/>
+          <polygon points="262,348 272,358 252,358"/>
+          <rect x="280" y="362" width="11" height="9" rx="1"/>
+          <polygon points="285.5,354 293,362 278,362"/>
         </g>
-        <g transform="translate(105,405) scale(1.1)" color="#3F2716" opacity="0.9">
+        <path d="M0 470 Q160 420 300 470 T500 440 V640 H0 Z" fill="#D2643A"/>
+        <g stroke="#F6C94A" stroke-width="4" fill="none" opacity="0.55">
+          <path d="M0 500 Q150 460 300 500 T500 470"/>
+        </g>
+        <g fill="#4A5A2E">
+          <ellipse cx="60" cy="540" rx="10" ry="46"/>
+          <ellipse cx="150" cy="555" rx="9" ry="40"/>
+          <ellipse cx="430" cy="560" rx="9" ry="38"/>
+        </g>
+        <g stroke="#4A5A2E" stroke-width="5">
+          <line x1="60" y1="560" x2="60" y2="610"/>
+          <line x1="150" y1="572" x2="150" y2="612"/>
+          <line x1="430" y1="576" x2="430" y2="612"/>
+        </g>
+        <g transform="translate(230,565) scale(1.1)" color="#5C3A22" opacity="0.92">
           <use href="#ico-donkey" width="100" height="100"/>
         </g>
-        <g transform="translate(150,420) scale(0.8)" color="#3F2716" opacity="0.8">
+        <g transform="translate(285,580) scale(0.8)" color="#5C3A22" opacity="0.85">
           <use href="#ico-donkey" width="100" height="100"/>
         </g>
       </svg>
@@ -470,28 +484,24 @@ footer .fine{
         <rect width="500" height="640" fill="url(#skyGrad2)"/>
         <defs>
           <linearGradient id="skyGrad2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#6E3B3C"/>
-            <stop offset="55%" stop-color="#8C4A38"/>
-            <stop offset="100%" stop-color="#2E1710"/>
+            <stop offset="0%" stop-color="#2C86D4"/>
+            <stop offset="60%" stop-color="#5AABD8"/>
+            <stop offset="100%" stop-color="#8FC9C0"/>
           </linearGradient>
         </defs>
-        <g fill="#F3EBDB">
-          <circle cx="60" cy="60" r="1.4"/><circle cx="140" cy="100" r="1"/><circle cx="230" cy="50" r="1.6"/>
-          <circle cx="320" cy="90" r="1"/><circle cx="410" cy="60" r="1.4"/><circle cx="460" cy="140" r="1"/>
-          <circle cx="90" cy="160" r="1"/><circle cx="380" cy="170" r="1.2"/>
+        <polygon points="60,330 150,180 240,330" fill="#3E4A7A"/>
+        <polygon points="120,190 150,140 180,190" fill="#FFFEFA" opacity="0.85"/>
+        <polygon points="240,330 340,210 440,330" fill="#5A6A9A"/>
+        <polygon points="310,220 340,175 370,220" fill="#FFFEFA" opacity="0.85"/>
+        <path d="M0 380 Q140 330 280 380 T500 350 V640 H0 Z" fill="#6FA23E"/>
+        <ellipse cx="380" cy="470" rx="150" ry="46" fill="#1FA79A" opacity="0.9"/>
+        <path d="M0 470 Q160 430 300 470 T500 450 V640 H0 Z" fill="#8FC15C"/>
+        <g fill="#E7A79E" opacity="0.9">
+          <circle cx="70" cy="520" r="5"/><circle cx="110" cy="540" r="4"/><circle cx="160" cy="515" r="5"/>
+          <circle cx="205" cy="545" r="4"/><circle cx="40" cy="555" r="4"/>
         </g>
-        <path d="M0 430 Q150 400 300 430 T500 420 V640 H0 Z" fill="#3A2E22"/>
-        <g transform="translate(260,360)">
-          <polygon points="0,-70 60,-15 60,70 -60,70 -60,-15" fill="#211A12"/>
-          <polygon points="0,-70 70,-10 -70,-10" fill="#150F0A"/>
-          <rect x="-16" y="10" width="32" height="60" fill="#0F0B07"/>
-          <circle cx="0" cy="-12" r="11" fill="#E7B968"/>
-        </g>
-        <path d="M40 300 Q140 270 260 300 T480 285" stroke="#E7B968" stroke-width="2" fill="none" opacity="0.9"/>
-        <g fill="#E7B968">
-          <circle cx="60" cy="298" r="3"/><circle cx="120" cy="288" r="3"/><circle cx="180" cy="294" r="3"/>
-          <circle cx="240" cy="298" r="3"/><circle cx="300" cy="292" r="3"/><circle cx="360" cy="290" r="3"/>
-          <circle cx="420" cy="286" r="3"/>
+        <g fill="#F4B93A" opacity="0.9">
+          <circle cx="90" cy="535" r="4"/><circle cx="135" cy="510" r="4"/><circle cx="180" cy="548" r="4"/>
         </g>
       </svg>
     </div>
@@ -500,16 +510,25 @@ footer .fine{
         <rect width="500" height="640" fill="url(#skyGrad3)"/>
         <defs>
           <linearGradient id="skyGrad3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#CFC3A3"/>
-            <stop offset="60%" stop-color="#A9A277"/>
-            <stop offset="100%" stop-color="#6B7455"/>
+            <stop offset="0%" stop-color="#9FD3E8"/>
+            <stop offset="100%" stop-color="#EAF5EF"/>
           </linearGradient>
         </defs>
-        <path d="M0 380 Q130 340 260 380 T500 360 V640 H0 Z" fill="#8B9268" opacity="0.9"/>
-        <path d="M0 440 Q150 410 300 440 T500 420 V640 H0 Z" fill="#5C6B44"/>
-        <path d="M70 440 C70 380 90 360 90 360 C90 360 110 380 110 440 Z" fill="#4A5636"/>
-        <g transform="translate(340,400) scale(1.1)" color="#3E4A2E" opacity="0.85">
-          <use href="#ico-donkey" width="100" height="100"/>
+        <circle cx="400" cy="150" r="40" fill="#F6C94A" opacity="0.95"/>
+        <path d="M0 420 Q130 380 260 420 T500 400 V640 H0 Z" fill="#E8DEC0"/>
+        <rect y="470" width="500" height="60" fill="#2C86D4"/>
+        <rect y="530" width="500" height="110" fill="#1FA79A"/>
+        <g stroke="#FFFEFA" stroke-width="3" fill="none" opacity="0.6">
+          <path d="M0 505 Q60 495 120 505 T240 505 T360 505 T500 505"/>
+          <path d="M0 560 Q60 548 120 560 T240 560 T360 560 T500 560"/>
+        </g>
+        <g>
+          <polygon points="120,455 140,500 100,500" fill="#FFFEFA"/>
+          <rect x="118" y="495" width="4" height="10" fill="#D2643A"/>
+        </g>
+        <g>
+          <polygon points="330,440 348,495 312,495" fill="#D2643A"/>
+          <rect x="328" y="490" width="4" height="12" fill="#1F3350"/>
         </g>
       </svg>
     </div>
@@ -525,13 +544,13 @@ footer .fine{
   <!-- ============ INTRO ============ -->
   <section class="intro reveal">
     <p>On se marie — dans une grange, à la campagne, entourés des gens qu'on aime. On serait ravis de vous avoir à nos côtés.</p>
-    <a class="btn btn-ghost story-cta" href="histoire.html">Envie de connaître notre histoire ? →</a>
+    <a class="btn btn-ghost story-cta" href="histoire.html" style="border-color:var(--cream-ink);color:var(--cream-ink);background:transparent;">Envie de connaître notre histoire ? →</a>
   </section>
 
-  <div class="divider" aria-hidden="true"><span class="divider-line"></span><svg class="divider-ico"><use href="#ico-sprig" width="24" height="24"/></svg><span class="divider-line"></span></div>
+  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-turquoise" width="500" height="52"/><path class="fill-surface-2" d="M0 52 Q125 6 250 28 T500 16 V52 Z"/></svg></span>
 
   <!-- ============ COUNTDOWN ============ -->
-  <section class="reveal">
+  <section class="reveal" style="background:var(--surface-2);">
     <div class="section-head">
       <p class="section-eyebrow">À vos agendas</p>
       <h2 class="section-title">Le compte à rebours</h2>
@@ -545,7 +564,7 @@ footer .fine{
     <a class="calendar-link" id="cfg-calendar-link" href="#" target="_blank" rel="noopener">+ Ajouter à mon calendrier</a>
   </section>
 
-  <div class="divider" aria-hidden="true"><span class="divider-line"></span><svg class="divider-ico"><use href="#ico-sprig" width="24" height="24"/></svg><span class="divider-line"></span></div>
+  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-surface-2" width="500" height="52"/><path class="fill-bg" d="M0 12 Q125 50 250 22 T500 36 V52 H0 Z"/></svg></span>
 
   <!-- ============ INFOS PRATIQUES ============ -->
   <section class="reveal" id="infos-pratiques">
@@ -555,29 +574,29 @@ footer .fine{
     </div>
     <div class="infos-grid">
       <div class="info-card">
-        <svg class="icon"><use href="#ico-pin"/></svg>
+        <div class="icon-badge"><svg><use href="#ico-pin"/></svg></div>
         <h3>Le lieu</h3>
         <p id="cfg-venue-name">La Ferme de la Faisanderie</p>
         <p id="cfg-venue-address" style="margin-top:4px;">Une ferme bio vivante, entre granges en pierre et champs à perte de vue.</p>
         <p style="margin-top:10px;"><a id="cfg-maps-link" href="#" target="_blank" rel="noopener">Voir l'itinéraire →</a></p>
       </div>
       <div class="info-card">
-        <svg class="icon"><use href="#ico-clock"/></svg>
+        <div class="icon-badge"><svg><use href="#ico-clock"/></svg></div>
         <h3>Le programme</h3>
         <p id="cfg-schedule">Un weekend complet à la ferme : cérémonie, cocktail au milieu des champs, dîner sous la charpente de la Grange à Grains, et DJ jusqu'au bout de la nuit.</p>
       </div>
       <div class="info-card">
-        <svg class="icon"><use href="#ico-shirt"/></svg>
+        <div class="icon-badge"><svg><use href="#ico-shirt"/></svg></div>
         <h3>La tenue</h3>
         <p>Chic et simple : chemise et chino pour ces messieurs, robe pour ces dames. Nous serons en pleine campagne — une tenue confortable sera la bienvenue.</p>
       </div>
       <div class="info-card">
-        <svg class="icon"><use href="#ico-food"/></svg>
+        <div class="icon-badge"><svg><use href="#ico-food"/></svg></div>
         <h3>À table</h3>
         <p id="cfg-food">Traiteurs locaux, produits de saison, bière brassée directement à la ferme — tout est pensé pour être bon, pour vous comme pour la planète. Allergies ou régimes particuliers : dites-le-nous sur le formulaire.</p>
       </div>
       <div class="info-card wide donkey-note">
-        <svg><use href="#ico-donkey" width="100" height="100"/></svg>
+        <div class="icon-badge" style="width:52px;height:52px;"><svg style="width:28px;height:28px;"><use href="#ico-donkey" width="100" height="100"/></svg></div>
         <p>Le domaine est aussi celui de deux ânes qui ne manqueront pas de venir dire bonjour. Caresses autorisées, sucreries interdites.</p>
       </div>
     </div>
