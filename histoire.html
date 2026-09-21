@@ -1,6 +1,6 @@
 <title>Notre histoire</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600;700&display=swap');
 
 :root{
   --bg:#FBF3E2;
@@ -36,23 +36,24 @@
 }
 
 *{box-sizing:border-box;}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
-.page{max-width:640px;margin:0 auto;overflow-x:hidden;}
-h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;margin:0;}
+.page{max-width:760px;margin:0 auto;overflow-x:hidden;}
+.full-bleed{width:100vw;margin-left:calc(50% - 50vw);}
+h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:balance;margin:0;}
 
 /* ---------- TOP BAR ---------- */
 .topbar{
   position:sticky;top:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
-  gap:10px;padding:14px 20px;
+  gap:10px;padding:14px 24px;
   background:color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
-.topbar a{font-family:'Work Sans',sans-serif;font-size:0.78rem;font-weight:700;text-decoration:none;white-space:nowrap;}
+.topbar a{font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:700;text-decoration:none;white-space:nowrap;}
 .back-link{color:var(--deep-blue);}
 .skip-link{color:var(--cream-ink);background:var(--terracotta);padding:9px 18px;border-radius:999px;transition:transform 0.15s ease;}
 .skip-link:hover{transform:translateY(-1px);}
@@ -65,7 +66,7 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
 
 .opener-photo{margin:26px 20px 0;border-radius:20px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 16px 34px -20px rgba(20,30,45,0.4);}
 .opener-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.opener-caption{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--ink-muted);margin:14px 20px 0;}
+.opener-caption{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink-muted);margin:14px 20px 0;}
 
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease, transform 0.7s ease;}
@@ -110,7 +111,7 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
 .card-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .card-caption{
   margin-top:10px;text-align:center;
-  font-family:'Fraunces',serif;font-style:italic;font-size:0.85rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.85rem;
   color:var(--ink);line-height:1.4;padding:0 4px;
 }
 
@@ -133,13 +134,13 @@ h1,h2,.display{font-family:'Fraunces',serif;font-weight:600;text-wrap:balance;ma
 }
 .finale-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .finale-caption{
-  font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;
   margin:22px auto 8px;max-width:30ch;color:var(--ink);
 }
 .finale p.lede{font-size:0.95rem;color:var(--ink-muted);max-width:36ch;margin:0 auto 28px;line-height:1.6;}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Work Sans',sans-serif;font-weight:700;font-size:0.95rem;
+  font-family:'Jost',sans-serif;font-weight:700;font-size:0.95rem;
   padding:16px 32px;border-radius:999px;text-decoration:none;
   background:var(--terracotta);color:var(--cream-ink);
   transition:transform 0.15s ease;
@@ -150,7 +151,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
 
 <div class="page">
 
-  <div class="topbar">
+  <div class="topbar full-bleed">
     <a class="back-link" href="index.html">← Le mariage</a>
     <a class="skip-link" href="index.html#infos-pratiques">Passer aux infos →</a>
   </div>
@@ -167,7 +168,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   <p class="opener-caption reveal">C'est l'histoire de deux personnes…</p>
 
   <!-- ============ CHAPITRE I : ILS MARCHENT ============ -->
-  <section class="chapter">
+  <section class="chapter full-bleed">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre I</p>
       <h2 class="chapter-title">Ils marchent, en même temps, chacun de leur côté</h2>
@@ -228,7 +229,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   </section>
 
   <!-- ============ CHAPITRE II : RESPONSABLES ============ -->
-  <section class="chapter" style="background:var(--surface-2);">
+  <section class="chapter full-bleed" style="background:var(--surface-2);">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre II</p>
       <h2 class="chapter-title">Deux adultes très responsables</h2>
@@ -297,7 +298,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   </section>
 
   <!-- ============ CHAPITRE III : ILS SE TROUVENT ============ -->
-  <section class="chapter">
+  <section class="chapter full-bleed">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre III</p>
       <h2 class="chapter-title">Et puis, ils se sont trouvés !</h2>

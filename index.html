@@ -1,6 +1,6 @@
 <title>Rendez-vous à la Grange</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600;700&display=swap');
 
 :root{
   --bg:#FBF3E2;
@@ -70,7 +70,7 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:'Work Sans',system-ui,sans-serif;
+  font-family:'Jost',system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;
   position:relative;
 }
@@ -87,10 +87,11 @@ body::before{
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
 
-.page{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+.page{max-width:720px;margin:0 auto;position:relative;z-index:1;}
+.full-bleed{width:100vw;margin-left:calc(50% - 50vw);}
 
 h1,h2,h3,.display{
-  font-family:'Fraunces',serif;
+  font-family:'Cormorant Garamond',serif;
   font-weight:600;
   text-wrap:balance;
   margin:0;
@@ -139,7 +140,7 @@ h1,h2,h3,.display{
   color:#FBF3E2;
 }
 .eyebrow{
-  font-family:'Work Sans',sans-serif;
+  font-family:'Jost',sans-serif;
   font-size:0.72rem;
   font-weight:600;
   letter-spacing:0.22em;
@@ -154,7 +155,7 @@ h1,h2,h3,.display{
 }
 .hero-date{
   margin-top:14px;
-  font-family:'Work Sans',sans-serif;
+  font-family:'Jost',sans-serif;
   font-weight:500;
   font-size:1rem;
   letter-spacing:0.03em;
@@ -187,7 +188,7 @@ section{padding:52px 28px;}
   background:var(--turquoise);
 }
 .intro p{
-  font-family:'Fraunces',serif;
+  font-family:'Cormorant Garamond',serif;
   font-size:1.25rem;
   font-weight:500;
   line-height:1.5;
@@ -229,7 +230,7 @@ section{padding:52px 28px;}
 .count-tile:nth-child(3){background:var(--olive);}
 .count-tile:nth-child(4){background:var(--ocre);}
 .count-num{
-  font-family:'Fraunces',serif;
+  font-family:'Cormorant Garamond',serif;
   font-size:1.7rem;
   font-weight:600;
   font-variant-numeric:tabular-nums;
@@ -302,14 +303,6 @@ section{padding:52px 28px;}
 }
 .info-card a{color:var(--deep-blue);text-decoration:none;border-bottom:1.5px solid currentColor;font-weight:600;}
 .info-card.wide{grid-column:1 / -1;}
-.donkey-note{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  background:var(--rose);
-}
-.donkey-note .icon-badge{background:var(--violet);margin-bottom:0;flex:none;}
-.donkey-note p{color:var(--deep-blue);font-weight:500;}
 
 /* ---------- CTA SECTIONS ---------- */
 .cta-section{
@@ -331,7 +324,7 @@ section{padding:52px 28px;}
   display:inline-flex;
   align-items:center;
   gap:10px;
-  font-family:'Work Sans',sans-serif;
+  font-family:'Jost',sans-serif;
   font-weight:700;
   font-size:0.95rem;
   letter-spacing:0.01em;
@@ -392,7 +385,7 @@ footer{
 }
 .footer-content{position:relative;z-index:2;}
 footer .sign{
-  font-family:'Fraunces',serif;
+  font-family:'Cormorant Garamond',serif;
   font-size:1.5rem;
   font-weight:600;
   color:#FFFBF1;
@@ -444,7 +437,7 @@ footer .fine{
 <div class="page">
 
   <!-- ============ HERO ============ -->
-  <header class="hero">
+  <header class="hero full-bleed">
     <div class="hero-photo">
       <img src="photos/couverture.jpg" alt="Awéna et Grégoire" loading="eager">
     </div>
@@ -458,15 +451,15 @@ footer .fine{
   </header>
 
   <!-- ============ INTRO ============ -->
-  <section class="intro reveal">
+  <section class="intro reveal full-bleed">
     <p>On se marie — dans une grange, à la campagne, entourés des gens qu'on aime. On serait ravis de vous avoir à nos côtés.</p>
     <a class="btn btn-ghost story-cta" href="histoire.html" style="border-color:var(--cream-ink);color:var(--cream-ink);background:transparent;">Envie de connaître notre histoire ? →</a>
   </section>
 
-  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-turquoise" width="500" height="52"/><path class="fill-surface-2" d="M0 52 Q125 6 250 28 T500 16 V52 Z"/></svg></span>
+  <span class="landscape-divider full-bleed" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-turquoise" width="500" height="52"/><path class="fill-surface-2" d="M0 52 Q125 6 250 28 T500 16 V52 Z"/></svg></span>
 
   <!-- ============ COUNTDOWN ============ -->
-  <section class="reveal" style="background:var(--surface-2);">
+  <section class="reveal full-bleed" style="background:var(--surface-2);">
     <div class="section-head">
       <p class="section-eyebrow">À vos agendas</p>
       <h2 class="section-title">Le compte à rebours</h2>
@@ -480,7 +473,7 @@ footer .fine{
     <a class="calendar-link" id="cfg-calendar-link" href="#" target="_blank" rel="noopener">+ Ajouter à mon calendrier</a>
   </section>
 
-  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-surface-2" width="500" height="52"/><path class="fill-bg" d="M0 12 Q125 50 250 22 T500 36 V52 H0 Z"/></svg></span>
+  <span class="landscape-divider full-bleed" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-surface-2" width="500" height="52"/><path class="fill-bg" d="M0 12 Q125 50 250 22 T500 36 V52 H0 Z"/></svg></span>
 
   <!-- ============ INFOS PRATIQUES ============ -->
   <section class="reveal" id="infos-pratiques">
@@ -511,10 +504,6 @@ footer .fine{
         <h3>À table</h3>
         <p id="cfg-food">Traiteurs locaux, produits de saison, bière brassée directement à la ferme — tout est pensé pour être bon, pour vous comme pour la planète. Allergies ou régimes particuliers : dites-le-nous sur le formulaire.</p>
       </div>
-      <div class="info-card wide donkey-note">
-        <div class="icon-badge" style="width:52px;height:52px;"><svg style="width:28px;height:28px;"><use href="#ico-donkey" width="100" height="100"/></svg></div>
-        <p>Le domaine est aussi celui de deux ânes qui ne manqueront pas de venir dire bonjour. Caresses autorisées, sucreries interdites.</p>
-      </div>
     </div>
   </section>
 
@@ -540,7 +529,7 @@ footer .fine{
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="reveal">
+  <footer class="reveal full-bleed">
     <div class="footer-photo"><img src="photos/lieu-soir.jpg" alt="La Ferme de la Faisanderie, un soir de fête" loading="lazy"></div>
     <div class="footer-veil"></div>
     <div class="footer-content">
