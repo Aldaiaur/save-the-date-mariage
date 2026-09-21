@@ -158,25 +158,12 @@ section{padding:56px 28px;}
   max-width:26ch;
   margin:0 auto;
 }
-.story-link{
-  display:inline-block;
-  margin-top:22px;
-  font-family:'Karla',sans-serif;
-  font-size:0.85rem;
-  font-weight:600;
-  letter-spacing:0.02em;
-  color:var(--accent);
-  text-decoration:none;
-  border-bottom:1px solid currentColor;
-  padding-bottom:2px;
+.divider{
+  display:flex;align-items:center;gap:14px;
+  padding:0 28px;
 }
-.rule{
-  width:100%;
-  height:1px;
-  background:var(--line);
-  border:none;
-  margin:0;
-}
+.divider-line{flex:1;height:1px;background:var(--line);}
+.divider-ico{width:18px;height:18px;flex:none;color:var(--accent-2);opacity:0.8;}
 .section-head{text-align:center;margin-bottom:32px;}
 .section-eyebrow{
   font-size:0.72rem;
@@ -202,11 +189,16 @@ section{padding:56px 28px;}
 .count-tile{
   background:var(--surface);
   border:1px solid var(--line);
-  border-radius:10px;
+  border-radius:12px;
   padding:14px 4px;
   text-align:center;
   box-shadow:var(--shadow);
+  transform:rotate(-1.5deg);
+  transition:transform 0.2s ease;
 }
+.count-tile:hover{transform:rotate(0deg) translateY(-2px);}
+.count-tile:nth-child(2n){transform:rotate(1.5deg);}
+.count-tile:nth-child(2n):hover{transform:rotate(0deg) translateY(-2px);}
 .count-num{
   font-family:'Fraunces',serif;
   font-size:1.7rem;
@@ -214,6 +206,8 @@ section{padding:56px 28px;}
   color:var(--accent);
   display:block;
 }
+.count-tile:nth-child(2) .count-num{color:var(--accent-2);}
+.count-tile:nth-child(3) .count-num{color:var(--gold);}
 .count-label{
   font-size:0.62rem;
   letter-spacing:0.12em;
@@ -248,12 +242,35 @@ section{padding:56px 28px;}
   .infos-grid{grid-template-columns:1fr 1fr;}
 }
 .info-card{
+  position:relative;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:14px;
-  padding:22px 20px;
+  padding:26px 20px 22px;
   box-shadow:var(--shadow);
+  transform:rotate(-0.6deg);
+  transition:transform 0.2s ease;
 }
+.info-card:hover{transform:rotate(0deg) translateY(-2px);}
+.info-card:nth-child(2n){transform:rotate(0.7deg);}
+.info-card:nth-child(2n):hover{transform:rotate(0deg) translateY(-2px);}
+.info-card::before{
+  content:"";
+  position:absolute;
+  top:-9px;left:26px;
+  width:44px;height:15px;
+  background:color-mix(in srgb, var(--gold) 60%, transparent);
+  border-radius:2px;
+  transform:rotate(-4deg);
+  box-shadow:0 2px 5px rgba(30,20,10,0.2);
+}
+.info-card:nth-child(2n)::before{
+  left:auto;right:26px;
+  background:color-mix(in srgb, var(--accent) 55%, transparent);
+  transform:rotate(3deg);
+}
+.info-card.wide{transform:rotate(0.3deg);}
+.info-card.wide:hover{transform:rotate(0deg) translateY(-2px);}
 .info-card .icon{
   width:30px;height:30px;
   color:var(--accent-2);
@@ -282,11 +299,23 @@ section{padding:56px 28px;}
 
 /* ---------- CTA SECTIONS ---------- */
 .cta-section{
+  position:relative;
   text-align:center;
   background:var(--surface-2);
   border-radius:20px;
   margin:0 20px;
   padding:48px 26px;
+}
+.cta-section::before{
+  content:"";
+  position:absolute;
+  top:-10px;left:50%;
+  width:56px;height:16px;
+  margin-left:-28px;
+  background:color-mix(in srgb, var(--gold) 60%, transparent);
+  border-radius:2px;
+  transform:rotate(-2deg);
+  box-shadow:0 2px 5px rgba(30,20,10,0.2);
 }
 .cta-section p.lede{
   font-size:0.95rem;
@@ -310,7 +339,7 @@ section{padding:56px 28px;}
   cursor:pointer;
   transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
-.btn:hover{transform:translateY(-1px);}
+.btn:hover{transform:translateY(-2px) rotate(-1deg);}
 .btn-primary{
   background:var(--accent);
   color:var(--accent-ink);
@@ -320,6 +349,11 @@ section{padding:56px 28px;}
   background:transparent;
   color:var(--accent);
   border-color:var(--accent);
+}
+.story-cta{
+  margin-top:30px;
+  font-size:1.05rem;
+  padding:17px 32px;
 }
 .btn[aria-disabled="true"]{
   opacity:0.55;
@@ -356,6 +390,12 @@ footer .donkeys{
   color:var(--accent-2);
   margin:0 auto 16px;
   display:block;
+  animation:donkey-wiggle 4.5s ease-in-out infinite;
+  transform-origin:50% 90%;
+}
+@keyframes donkey-wiggle{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(-2.5deg);}
 }
 footer .fine{
   font-size:0.78rem;
@@ -385,6 +425,11 @@ footer .fine{
   <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
     <circle cx="12" cy="12" r="9"/>
     <path d="M12 7v5l3.5 2"/>
+  </symbol>
+  <symbol id="ico-sprig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21V9"/>
+    <path d="M12 13c0-3 -2-5-5-5.5C7.5 10.5 9.5 13 12 13Z"/>
+    <path d="M12 9c0-3 2-5 5-5.5C16.5 6.5 14.5 9 12 9Z"/>
   </symbol>
 </svg>
 
@@ -425,9 +470,9 @@ footer .fine{
         <rect width="500" height="640" fill="url(#skyGrad2)"/>
         <defs>
           <linearGradient id="skyGrad2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2B2A44"/>
-            <stop offset="60%" stop-color="#4A3A3F"/>
-            <stop offset="100%" stop-color="#211C15"/>
+            <stop offset="0%" stop-color="#6E3B3C"/>
+            <stop offset="55%" stop-color="#8C4A38"/>
+            <stop offset="100%" stop-color="#2E1710"/>
           </linearGradient>
         </defs>
         <g fill="#F3EBDB">
@@ -480,10 +525,10 @@ footer .fine{
   <!-- ============ INTRO ============ -->
   <section class="intro reveal">
     <p>On se marie — dans une grange, à la campagne, entourés des gens qu'on aime. On serait ravis de vous avoir à nos côtés.</p>
-    <a class="story-link" href="histoire.html">Envie de connaître notre histoire ? →</a>
+    <a class="btn btn-ghost story-cta" href="histoire.html">Envie de connaître notre histoire ? →</a>
   </section>
 
-  <hr class="rule">
+  <div class="divider" aria-hidden="true"><span class="divider-line"></span><svg class="divider-ico"><use href="#ico-sprig" width="24" height="24"/></svg><span class="divider-line"></span></div>
 
   <!-- ============ COUNTDOWN ============ -->
   <section class="reveal">
@@ -500,7 +545,7 @@ footer .fine{
     <a class="calendar-link" id="cfg-calendar-link" href="#" target="_blank" rel="noopener">+ Ajouter à mon calendrier</a>
   </section>
 
-  <hr class="rule">
+  <div class="divider" aria-hidden="true"><span class="divider-line"></span><svg class="divider-ico"><use href="#ico-sprig" width="24" height="24"/></svg><span class="divider-line"></span></div>
 
   <!-- ============ INFOS PRATIQUES ============ -->
   <section class="reveal" id="infos-pratiques">
