@@ -40,18 +40,20 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',system-ui
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
-.page{max-width:760px;margin:0 auto;overflow-x:hidden;}
-.full-bleed{width:100vw;margin-left:calc(50% - 50vw);}
+.page{overflow-x:hidden;}
 h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:balance;margin:0;}
 
 /* ---------- TOP BAR ---------- */
 .topbar{
   position:sticky;top:0;z-index:10;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:10px;padding:14px 24px;
   background:color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:920px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:14px 24px;
 }
 .topbar a{font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:700;text-decoration:none;white-space:nowrap;}
 .back-link{color:var(--deep-blue);}
@@ -59,12 +61,12 @@ h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:
 .skip-link:hover{transform:translateY(-1px);}
 
 /* ---------- STORY HERO ---------- */
-.story-hero{text-align:center;padding:48px 26px 30px;}
+.story-hero{text-align:center;padding:48px 26px 30px;max-width:760px;margin-left:auto;margin-right:auto;}
 .story-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);margin:0 0 12px;}
 .story-title{font-size:clamp(2.1rem,8vw,2.7rem);line-height:1.15;}
 .story-sub{margin-top:14px;font-size:0.95rem;color:var(--ink-muted);max-width:36ch;margin-left:auto;margin-right:auto;line-height:1.6;}
 
-.opener-photo{margin:26px 20px 0;border-radius:20px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 16px 34px -20px rgba(20,30,45,0.4);}
+.opener-photo{max-width:900px;margin:26px auto 0;border-radius:20px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 16px 34px -20px rgba(20,30,45,0.4);}
 .opener-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .opener-caption{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink-muted);margin:14px 20px 0;}
 
@@ -74,13 +76,13 @@ h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:
 
 /* ---------- CHAPTERS ---------- */
 .chapter{padding:46px 0 10px;}
-.chapter-head{text-align:center;padding:0 24px;margin-bottom:8px;}
+.chapter-head{text-align:center;padding:0 24px;margin-bottom:8px;max-width:700px;margin-left:auto;margin-right:auto;}
 .chapter-label{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--terracotta);margin:0 0 10px;}
 .chapter-title{font-size:1.6rem;margin-bottom:10px;}
 .chapter-sub{font-size:0.92rem;color:var(--ink-muted);max-width:38ch;margin:0 auto;line-height:1.55;}
 
-/* ---------- DECKS (card carousel) ---------- */
-.deck-row{margin-top:26px;}
+/* ---------- DECKS (photo grid) ---------- */
+.deck-row{margin-top:26px;max-width:1100px;margin-left:auto;margin-right:auto;}
 .deck-tag{
   display:inline-block;margin:0 0 12px 24px;
   font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
@@ -89,14 +91,17 @@ h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:
 .deck-tag.elle{background:var(--terracotta);}
 .deck-tag.lui{background:var(--azure);}
 .deck{
-  display:flex;gap:14px;overflow-x:auto;
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:16px;
   padding:6px 24px 18px;
-  scroll-snap-type:x proximity;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
 }
-.deck::-webkit-scrollbar{display:none;}
-.card{flex:none;width:58vw;max-width:230px;scroll-snap-align:center;}
+@media (min-width:620px){
+  .deck{grid-template-columns:repeat(3, 1fr);}
+}
+@media (min-width:980px){
+  .deck{grid-template-columns:repeat(4, 1fr);}
+}
 .card-photo{
   aspect-ratio:3/4;border-radius:14px;overflow:hidden;
   box-shadow:0 14px 26px -16px rgba(20,30,45,0.4);
@@ -106,8 +111,8 @@ h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
 }
-.card:nth-child(odd) .card-photo{transform:rotate(-3deg);}
-.card:nth-child(even) .card-photo{transform:rotate(2.5deg);}
+.card:nth-child(odd) .card-photo{transform:rotate(-2.5deg);}
+.card:nth-child(even) .card-photo{transform:rotate(2deg);}
 .card-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .card-caption{
   margin-top:10px;text-align:center;
@@ -116,15 +121,12 @@ h1,h2,.display{font-family:'Cormorant Garamond',serif;font-weight:600;text-wrap:
 }
 
 /* converge deck (trouvés) */
-.deck.converge{padding-left:44px;}
-.deck.converge .card{margin-left:-34px;}
-.deck.converge .card:first-child{margin-left:0;}
 .deck.converge .card-photo{border-color:var(--terracotta);border-width:4px;}
-.deck.converge .card:nth-child(1) .card-photo{transform:rotate(-6deg);}
-.deck.converge .card:nth-child(2) .card-photo{transform:rotate(-2deg);}
-.deck.converge .card:nth-child(3) .card-photo{transform:rotate(3deg);}
-.deck.converge .card:nth-child(4) .card-photo{transform:rotate(-3deg);}
-.deck.converge .card:nth-child(5) .card-photo{transform:rotate(5deg);}
+.deck.converge .card:nth-child(1) .card-photo{transform:rotate(-4deg);}
+.deck.converge .card:nth-child(2) .card-photo{transform:rotate(2deg);}
+.deck.converge .card:nth-child(3) .card-photo{transform:rotate(-2deg);}
+.deck.converge .card:nth-child(4) .card-photo{transform:rotate(3deg);}
+.deck.converge .card:nth-child(5) .card-photo{transform:rotate(-3deg);}
 
 /* ---------- FINALE ---------- */
 .finale{text-align:center;padding:56px 26px 76px;}
@@ -151,9 +153,11 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
 
 <div class="page">
 
-  <div class="topbar full-bleed">
-    <a class="back-link" href="index.html">← Le mariage</a>
-    <a class="skip-link" href="index.html#infos-pratiques">Passer aux infos →</a>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="back-link" href="index.html">← Le mariage</a>
+      <a class="skip-link" href="index.html#infos-pratiques">Passer aux infos →</a>
+    </div>
   </div>
 
   <header class="story-hero reveal">
@@ -168,7 +172,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   <p class="opener-caption reveal">C'est l'histoire de deux personnes…</p>
 
   <!-- ============ CHAPITRE I : ILS MARCHENT ============ -->
-  <section class="chapter full-bleed">
+  <section class="chapter">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre I</p>
       <h2 class="chapter-title">Ils marchent, en même temps, chacun de leur côté</h2>
@@ -229,7 +233,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   </section>
 
   <!-- ============ CHAPITRE II : RESPONSABLES ============ -->
-  <section class="chapter full-bleed" style="background:var(--surface-2);">
+  <section class="chapter" style="background:var(--surface-2);">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre II</p>
       <h2 class="chapter-title">Deux adultes très responsables</h2>
@@ -298,7 +302,7 @@ a:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:
   </section>
 
   <!-- ============ CHAPITRE III : ILS SE TROUVENT ============ -->
-  <section class="chapter full-bleed">
+  <section class="chapter">
     <div class="chapter-head reveal">
       <p class="chapter-label">Chapitre III</p>
       <h2 class="chapter-title">Et puis, ils se sont trouvés !</h2>

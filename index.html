@@ -87,8 +87,7 @@ body::before{
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
 }
 
-.page{max-width:720px;margin:0 auto;position:relative;z-index:1;}
-.full-bleed{width:100vw;margin-left:calc(50% - 50vw);}
+.page{position:relative;z-index:1;overflow-x:hidden;}
 
 h1,h2,h3,.display{
   font-family:'Cormorant Garamond',serif;
@@ -196,7 +195,7 @@ section{padding:52px 28px;}
   max-width:26ch;
   margin:0 auto;
 }
-.section-head{text-align:center;margin-bottom:30px;}
+.section-head{text-align:center;margin-bottom:30px;max-width:700px;margin-left:auto;margin-right:auto;}
 .section-eyebrow{
   font-size:0.72rem;
   font-weight:600;
@@ -269,6 +268,8 @@ section{padding:52px 28px;}
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
+  max-width:820px;
+  margin:0 auto;
 }
 @media (min-width:520px){
   .infos-grid{grid-template-columns:1fr 1fr;}
@@ -309,7 +310,8 @@ section{padding:52px 28px;}
   text-align:center;
   background:var(--surface);
   border-radius:24px;
-  margin:0 20px;
+  max-width:640px;
+  margin:0 auto;
   padding:44px 26px;
   box-shadow:var(--shadow);
 }
@@ -437,7 +439,7 @@ footer .fine{
 <div class="page">
 
   <!-- ============ HERO ============ -->
-  <header class="hero full-bleed">
+  <header class="hero">
     <div class="hero-photo">
       <img src="photos/couverture.jpg" alt="Awéna et Grégoire" loading="eager">
     </div>
@@ -451,15 +453,15 @@ footer .fine{
   </header>
 
   <!-- ============ INTRO ============ -->
-  <section class="intro reveal full-bleed">
+  <section class="intro reveal">
     <p>On se marie — dans une grange, à la campagne, entourés des gens qu'on aime. On serait ravis de vous avoir à nos côtés.</p>
     <a class="btn btn-ghost story-cta" href="histoire.html" style="border-color:var(--cream-ink);color:var(--cream-ink);background:transparent;">Envie de connaître notre histoire ? →</a>
   </section>
 
-  <span class="landscape-divider full-bleed" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-turquoise" width="500" height="52"/><path class="fill-surface-2" d="M0 52 Q125 6 250 28 T500 16 V52 Z"/></svg></span>
+  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-turquoise" width="500" height="52"/><path class="fill-surface-2" d="M0 52 Q125 6 250 28 T500 16 V52 Z"/></svg></span>
 
   <!-- ============ COUNTDOWN ============ -->
-  <section class="reveal full-bleed" style="background:var(--surface-2);">
+  <section class="reveal" style="background:var(--surface-2);">
     <div class="section-head">
       <p class="section-eyebrow">À vos agendas</p>
       <h2 class="section-title">Le compte à rebours</h2>
@@ -473,7 +475,7 @@ footer .fine{
     <a class="calendar-link" id="cfg-calendar-link" href="#" target="_blank" rel="noopener">+ Ajouter à mon calendrier</a>
   </section>
 
-  <span class="landscape-divider full-bleed" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-surface-2" width="500" height="52"/><path class="fill-bg" d="M0 12 Q125 50 250 22 T500 36 V52 H0 Z"/></svg></span>
+  <span class="landscape-divider" aria-hidden="true"><svg viewBox="0 0 500 52" preserveAspectRatio="none"><rect class="fill-surface-2" width="500" height="52"/><path class="fill-bg" d="M0 12 Q125 50 250 22 T500 36 V52 H0 Z"/></svg></span>
 
   <!-- ============ INFOS PRATIQUES ============ -->
   <section class="reveal" id="infos-pratiques">
@@ -529,7 +531,7 @@ footer .fine{
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="reveal full-bleed">
+  <footer class="reveal">
     <div class="footer-photo"><img src="photos/lieu-soir.jpg" alt="La Ferme de la Faisanderie, un soir de fête" loading="lazy"></div>
     <div class="footer-veil"></div>
     <div class="footer-content">
