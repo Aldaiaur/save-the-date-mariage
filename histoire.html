@@ -20,14 +20,7 @@
   --line:#EFE2C8;
   --cream-ink:#FFFBF1;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#152233; --surface:#1E2E44; --surface-2:#233A55; --ink:#F2EBDA; --ink-muted:#AEB9C9;
-    --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
-    --olive:#9CAE6E; --solar:#F7C860; --ocre:#E8B364; --terracotta:#E58260;
-    --violet:#A98CD1; --line:#2D3F58; --cream-ink:#1B140B;
-  }
-}
+/* Le mode sombre auto est désactivé exprès : on garde le même look crème/rouille pour tout le monde. */
 :root[data-theme="dark"]{
   --bg:#152233; --surface:#1E2E44; --surface-2:#233A55; --ink:#F2EBDA; --ink-muted:#AEB9C9;
   --azure:#5AA9E6; --deep-blue:#3E76B0; --turquoise:#3FC7B8; --prairie:#8FC15C;
@@ -36,6 +29,7 @@
 }
 
 *{box-sizing:border-box;}
+:root{color-scheme:light;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
